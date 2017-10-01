@@ -7,91 +7,235 @@
 //
 
 import UIKit
+import GoogleMobileAds
+
+// Variable for the current string of information on the main screen
+var currentDisplay:String = ""
+var operationIsRunning: Bool = false
+var operatorType:String?
+var firstNumber:Double?
+var secondNumber:Double?
+var answer:String = ""
+
 
 class ViewController: UIViewController {
     
-    var numberOnScreen:Double = 0
-    var previousNumber:Double = 0
-    var performingMath = false
-    var operation = 0
+    //Variables from the UI saved into my ViewController Class to be used in button functionality etc.
+    @IBOutlet weak var mainDisplay: UILabel!
+    @IBOutlet weak var variableButton: UIButton!
+    
+    // MARK: Google adwords variable
+    
+    @IBOutlet weak var GoogleBannerView: GADBannerView!
     
     
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var label2: UILabel!
+    //MARK: Clear Button Functionality
+    @IBAction func clearButton(_ sender: UIButton) {
+        currentDisplay = ""
+        mainDisplay.text = currentDisplay
+        operationIsRunning = false
+        firstNumber = nil
+        secondNumber = nil
+    }
+    
+    //MARK: Equals button functionality
+    
+    @IBAction func pressedEqualsButton(_ sender: UIButton) {
+        
+        let checkSecondNumber = String(mainDisplay.text!)
+        
+        
+        // Check to see if firstNumber is not nil
+        // Check to see if there is a second number available
+        
+        if firstNumber != nil && checkSecondNumber != nil && checkSecondNumber != "+" {
+            
+            secondNumber = Double(mainDisplay.text!)
+            
+            if operatorType == "+" {
+                answer = String(firstNumber! + secondNumber!)
+            }
+            
+            if operatorType == "-" {
+                answer = String(firstNumber! - secondNumber!)
+            }
+            
+            if operatorType == "/" {
+                answer = String(firstNumber! / secondNumber!)
+            }
+            
+            if operatorType == "x" {
+                answer = String(firstNumber! * secondNumber!)
+            }
+            
+        currentDisplay = answer
+        mainDisplay.text = currentDisplay
+        variableButton.setTitle(answer, for: .normal)
+        firstNumber = nil
+        secondNumber = nil
+            
+        }
+        
+    }
+    
 
     
-    @IBAction func numbers(_ sender: UIButton) {
+    // MARK: Number Pad Functionality
+    @IBAction func pressedNumberPad(_ sender: UIButton) {
+   
+    
+        // Take the input from the tag on the button pressed, assign it to a readable variable
+        let inputRecieved = sender.tag - 1
+        // Create a empty NumberPad Enumeration Variable for the switch statement to assign a value to
+        var numberPressed = Int()
         
-        
-        if performingMath == true {
-            
-            label.text = String(sender.tag-1)
-            numberOnScreen = Double(label.text!)!
-            performingMath = false
+        switch inputRecieved {
+        case 0:
+            numberPressed = 0
+        case 1:
+            numberPressed = 1
+        case 2:
+            numberPressed = 2
+        case 3:
+            numberPressed = 3
+        case 4:
+            numberPressed = 4
+        case 5:
+            numberPressed = 5
+        case 6:
+            numberPressed = 6
+        case 7:
+            numberPressed = 7
+        case 8:
+            numberPressed = 8
+        case 9:
+            numberPressed = 9
+        default:
+            numberPressed = 0
         }
-        else {
+        
+        // Clear out the currentDisplay variable if it contains a operator
+        if currentDisplay == "/" || currentDisplay == "x" || currentDisplay == "-" || currentDisplay == "+" {
+            currentDisplay = ""
+        }
+        
+        // String the resulting value to send to the mainDisplay label
+        let makeValueIntoString = String(describing: numberPressed)
+        
+        // Append the character the the end of the current string using the mainDisplay global variable
+        currentDisplay.append(makeValueIntoString)
+        // Update the mainDisplay's text by accessing and reassigning the global variable to the text object
+        mainDisplay.text = currentDisplay
+        
+        
+    }
+    
+    
+    // MARK: Variable Button Input
+    
+    @IBAction func pressedVariableButton(_ sender: UIButton) {
+        
+        
+        
+        if firstNumber == nil {
             
-            label.text = label.text! + String(sender.tag-1)
-            numberOnScreen = Double(label.text!)!
+            if Double(variableButton.currentTitle!) != nil {
+            
+   
+                currentDisplay = variableButton.currentTitle!
+                mainDisplay.text = currentDisplay
+                
+            }
+            
+        }
+            
+        else if secondNumber == nil {
+            
+            if Double(variableButton.currentTitle!) != nil {
+                
+
+                currentDisplay = variableButton.currentTitle!
+                mainDisplay.text = currentDisplay
+
+            
+            }
         }
     }
     
     
-    @IBAction func buttons(_ sender: UIButton) {
+    
+    
+    //MARK: Operator Button Functionality
+ 
+    @IBAction func pressedOperatorButton(_ sender: UIButton) {
         
-        if label.text != "" && sender.tag != 11 && sender.tag != 16 {
-            
-            
-            previousNumber = Double(label.text!)!
-            
-            if sender.tag == 12 { // Divide
-                label.text = "/"
-            }
-            else if sender.tag == 13 { // Multiply
-                label.text = "x"
-            }
-            else if sender.tag == 14 { // Minus
-                label.text = "-"
-            }
-            else if sender.tag == 15 { // Plus
-                label.text = "+"
-            }
-            
-            operation = sender.tag
-            performingMath = true
-            
+        // Ignore action if it contains a operator
+        if currentDisplay == "/" || currentDisplay == "x" || currentDisplay == "-" || currentDisplay == "+" {
+            return
         }
-        else if sender.tag == 16 {
-            if operation == 12 {
-
-                label2.text = String(previousNumber / numberOnScreen)
+        
+        
+        if firstNumber == nil {
+            
+            // If there is a number displayed on screen, save it to the first number variable
+            firstNumber = Double(currentDisplay)
+            
+            //Update the current display with the operation the user is performing
+            currentDisplay = sender.currentTitle!
+            mainDisplay.text = currentDisplay
+            operatorType = sender.currentTitle
+            
+            
+        } else if secondNumber == nil {
+            
+            if let checkSecondNumber = Double(mainDisplay.text!) {
+                secondNumber = checkSecondNumber
             }
-            if operation == 13 {
-
-                label2.text = String(previousNumber * numberOnScreen)
+            
+            if operatorType == "+" {
+                answer = String(firstNumber! + secondNumber!)
             }
-            if operation == 14 {
-
-                label2.text = String(previousNumber - numberOnScreen)
+            
+            if operatorType == "-" {
+                answer = String(firstNumber! - secondNumber!)
             }
-            if operation == 15 {
-
-                label2.text = String(previousNumber + numberOnScreen)
+            
+            if operatorType == "/" {
+                answer = String(firstNumber! / secondNumber!)
             }
+            
+            if operatorType == "x" {
+                answer = String(firstNumber! * secondNumber!)
+            }
+            
+            // Update the answer box button
+            variableButton.setTitle(answer, for: .normal)
+            
+            //Update the current display with the operation the user is performing
+            currentDisplay = sender.currentTitle!
+            mainDisplay.text = currentDisplay
+            firstNumber = Double(answer)
+            secondNumber = nil
+            operatorType = sender.currentTitle
+            
+        } else {
+            mainDisplay.text = "Please enter a number to start"
         }
-        else if sender.tag == 11 {
-            label.text = ""
-            previousNumber = 0
-            numberOnScreen = 0
-            operation = 0
-        }
+        
     }
+    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        GoogleBannerView.rootViewController = self
+        GoogleBannerView.load(GADRequest())
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "EA9A07108A7E37A9DDD70687E53E2DDBB56C9FDD",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D8D1676274447B6EDF471F37E92BCA1D9AA34568" : 9223372036854775807,
+    "EA9A07108A7E37A9DDD70687E53E2DDBB56C9FDD" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F55107E1-154B-4C30-9BF9-2DDA1BF35030",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D8D1676274447B6EDF471F37E92BCA1D9AA34568" : "",
+    "EA9A07108A7E37A9DDD70687E53E2DDBB56C9FDD" : "adam-calc\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "adam-calc",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "adam-calc.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/adamrd231\/learn-swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D8D1676274447B6EDF471F37E92BCA1D9AA34568"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/adamrd231\/swift-calc.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EA9A07108A7E37A9DDD70687E53E2DDBB56C9FDD"
+    }
+  ]
+}

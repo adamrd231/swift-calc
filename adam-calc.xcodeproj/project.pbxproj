@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		665B482F1F81891300ED54BF /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B482E1F81891300ED54BF /* GoogleMobileAds.framework */; };
+		665B48311F81896000ED54BF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48301F81896000ED54BF /* AdSupport.framework */; };
+		665B48331F81896700ED54BF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48321F81896700ED54BF /* AudioToolbox.framework */; };
+		665B48351F81896D00ED54BF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48341F81896D00ED54BF /* AVFoundation.framework */; };
+		665B48371F81897600ED54BF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48361F81897600ED54BF /* CoreGraphics.framework */; };
+		665B48391F81898100ED54BF /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48381F81898100ED54BF /* CoreTelephony.framework */; };
+		665B483B1F81898800ED54BF /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B483A1F81898800ED54BF /* EventKit.framework */; };
+		665B483D1F81899100ED54BF /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B483C1F81899100ED54BF /* EventKitUI.framework */; };
+		665B483F1F81899B00ED54BF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B483E1F81899B00ED54BF /* MessageUI.framework */; };
+		665B48411F8189A200ED54BF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48401F8189A200ED54BF /* StoreKit.framework */; };
+		665B48431F8189B700ED54BF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48421F8189B700ED54BF /* SystemConfiguration.framework */; };
+		66AB1A211F80164C003A0D86 /* calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AB1A201F80164C003A0D86 /* calculator.swift */; };
 		66EA30271F78564F00284C45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EA30261F78564F00284C45 /* AppDelegate.swift */; };
 		66EA30291F78564F00284C45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EA30281F78564F00284C45 /* ViewController.swift */; };
 		66EA302C1F78565000284C45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EA302A1F78565000284C45 /* Main.storyboard */; };
@@ -34,6 +46,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		665B482E1F81891300ED54BF /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = SDKs/GoogleMobileAds.framework; sourceTree = "<group>"; };
+		665B48301F81896000ED54BF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		665B48321F81896700ED54BF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		665B48341F81896D00ED54BF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		665B48361F81897600ED54BF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		665B48381F81898100ED54BF /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		665B483A1F81898800ED54BF /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		665B483C1F81899100ED54BF /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		665B483E1F81899B00ED54BF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		665B48401F8189A200ED54BF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		665B48421F8189B700ED54BF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		66AB1A201F80164C003A0D86 /* calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calculator.swift; sourceTree = "<group>"; };
 		66EA30231F78564F00284C45 /* adam-calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "adam-calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EA30261F78564F00284C45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EA30281F78564F00284C45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +78,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				665B48431F8189B700ED54BF /* SystemConfiguration.framework in Frameworks */,
+				665B48411F8189A200ED54BF /* StoreKit.framework in Frameworks */,
+				665B483F1F81899B00ED54BF /* MessageUI.framework in Frameworks */,
+				665B483D1F81899100ED54BF /* EventKitUI.framework in Frameworks */,
+				665B483B1F81898800ED54BF /* EventKit.framework in Frameworks */,
+				665B48391F81898100ED54BF /* CoreTelephony.framework in Frameworks */,
+				665B48371F81897600ED54BF /* CoreGraphics.framework in Frameworks */,
+				665B48351F81896D00ED54BF /* AVFoundation.framework in Frameworks */,
+				665B48331F81896700ED54BF /* AudioToolbox.framework in Frameworks */,
+				665B48311F81896000ED54BF /* AdSupport.framework in Frameworks */,
+				665B482F1F81891300ED54BF /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +109,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		665B482D1F81891200ED54BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				665B48421F8189B700ED54BF /* SystemConfiguration.framework */,
+				665B48401F8189A200ED54BF /* StoreKit.framework */,
+				665B483E1F81899B00ED54BF /* MessageUI.framework */,
+				665B483C1F81899100ED54BF /* EventKitUI.framework */,
+				665B483A1F81898800ED54BF /* EventKit.framework */,
+				665B48381F81898100ED54BF /* CoreTelephony.framework */,
+				665B48361F81897600ED54BF /* CoreGraphics.framework */,
+				665B48341F81896D00ED54BF /* AVFoundation.framework */,
+				665B48321F81896700ED54BF /* AudioToolbox.framework */,
+				665B48301F81896000ED54BF /* AdSupport.framework */,
+				665B482E1F81891300ED54BF /* GoogleMobileAds.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		66EA301A1F78564F00284C45 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +134,7 @@
 				66EA303A1F78565000284C45 /* adam-calcTests */,
 				66EA30451F78565000284C45 /* adam-calcUITests */,
 				66EA30241F78564F00284C45 /* Products */,
+				665B482D1F81891200ED54BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +153,7 @@
 			children = (
 				66EA30261F78564F00284C45 /* AppDelegate.swift */,
 				66EA30281F78564F00284C45 /* ViewController.swift */,
+				66AB1A201F80164C003A0D86 /* calculator.swift */,
 				66EA302A1F78565000284C45 /* Main.storyboard */,
 				66EA302D1F78565000284C45 /* Assets.xcassets */,
 				66EA302F1F78565000284C45 /* LaunchScreen.storyboard */,
@@ -262,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66AB1A211F80164C003A0D86 /* calculator.swift in Sources */,
 				66EA30291F78564F00284C45 /* ViewController.swift in Sources */,
 				66EA30271F78564F00284C45 /* AppDelegate.swift in Sources */,
 			);
@@ -416,6 +472,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M8R2LVVQ3Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDKs",
+				);
 				INFOPLIST_FILE = "adam-calc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "design.rdconcepts.adam-calc";
@@ -429,6 +489,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M8R2LVVQ3Q;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SDKs",
+				);
 				INFOPLIST_FILE = "adam-calc/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "design.rdconcepts.adam-calc";
@@ -514,6 +578,7 @@
 				66EA304D1F78565000284C45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66EA304E1F78565000284C45 /* Build configuration list for PBXNativeTarget "adam-calcTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +587,7 @@
 				66EA30501F78565000284C45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		66EA30511F78565000284C45 /* Build configuration list for PBXNativeTarget "adam-calcUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +596,7 @@
 				66EA30531F78565000284C45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
