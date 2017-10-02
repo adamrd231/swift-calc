@@ -194,7 +194,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="17" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBA-Ap-RpK">
-                                <rect key="frame" x="0.0" y="126" width="375" height="72"/>
+                                <rect key="frame" x="94" y="126" width="281" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -237,6 +237,14 @@
                                     <action selector="pressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MHq-pJ-pUk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmK-qx-9bs">
+                                <rect key="frame" x="5" y="147" width="80" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Un-Locked"/>
+                                <connections>
+                                    <action selector="updateVariableButtonStatus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iA0-Vp-Tsk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -244,6 +252,7 @@
                         <outlet property="GoogleBannerView" destination="YJV-zw-cUw" id="Ydv-tb-9Ht"/>
                         <outlet property="mainDisplay" destination="A7k-V0-JMM" id="OCU-9j-EG8"/>
                         <outlet property="variableButton" destination="UBA-Ap-RpK" id="Nzx-lW-Tgg"/>
+                        <outlet property="variableButtonLock" destination="WmK-qx-9bs" id="A6R-NR-6cW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

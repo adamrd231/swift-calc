@@ -16,6 +16,7 @@ var operatorType:String?
 var firstNumber:Double?
 var secondNumber:Double?
 var answer:String = ""
+var variableIsLocked = false
 
 
 class ViewController: UIViewController {
@@ -25,9 +26,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var variableButton: UIButton!
     
     // MARK: Google adwords variable
-    
     @IBOutlet weak var GoogleBannerView: GADBannerView!
     
+    @IBOutlet weak var variableButtonLock: UIButton!
     
     //MARK: Clear Button Functionality
     @IBAction func clearButton(_ sender: UIButton) {
@@ -70,7 +71,13 @@ class ViewController: UIViewController {
             
         currentDisplay = answer
         mainDisplay.text = currentDisplay
-        variableButton.setTitle(answer, for: .normal)
+            
+            
+        if variableIsLocked == false {
+            variableButton.setTitle(answer, for: .normal)
+            UserDefaults.standard.set(variableButton.currentTitle, forKey: "variableInputButton")
+        }
+        
         firstNumber = nil
         secondNumber = nil
             
@@ -129,22 +136,31 @@ class ViewController: UIViewController {
         
         
     }
+ 
     
+    @IBAction func updateVariableButtonStatus(_ sender: UIButton) {
+        
+        if variableIsLocked == true {
+            variableIsLocked = false
+            variableButtonLock.setTitle("Un-Locked", for: .normal)
+        }
+        
+        else {
+            variableIsLocked = true
+            variableButtonLock.setTitle("Locked", for: .normal)
+        }
+    }
     
     // MARK: Variable Button Input
     
     @IBAction func pressedVariableButton(_ sender: UIButton) {
         
-        
-        
         if firstNumber == nil {
             
             if Double(variableButton.currentTitle!) != nil {
             
-   
                 currentDisplay = variableButton.currentTitle!
                 mainDisplay.text = currentDisplay
-                
             }
             
         }
@@ -153,10 +169,8 @@ class ViewController: UIViewController {
             
             if Double(variableButton.currentTitle!) != nil {
                 
-
                 currentDisplay = variableButton.currentTitle!
                 mainDisplay.text = currentDisplay
-
             
             }
         }
@@ -224,12 +238,13 @@ class ViewController: UIViewController {
         
     }
     
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        // MARK: Google AdMob integration 
         
         GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
         GoogleBannerView.rootViewController = self
@@ -243,6 +258,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func viewDidAppear(_ animated: Bool) {
+        if let x = UserDefaults.standard.object(forKey: "variableInputButton") as? String {
+            variableButton.setTitle(x, for: .normal)
+        }
+    }
+    
 }
 
