@@ -11,12 +11,14 @@ import GoogleMobileAds
 
 // Variable for the current string of information on the main screen
 var currentDisplay:String = ""
-var operationIsRunning: Bool = false
+var operationIsDisplayed: Bool = false
 var operatorType:String?
 var firstNumber:Double?
 var secondNumber:Double?
 var answer:String = ""
-var variableIsLocked = false
+var typeDoubleAnswer:Double?
+var variableIsLocked: Bool = false
+
 
 
 class ViewController: UIViewController {
@@ -30,11 +32,12 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var variableButtonLock: UIButton!
     
+    
+    
     //MARK: Clear Button Functionality
     @IBAction func clearButton(_ sender: UIButton) {
         currentDisplay = ""
         mainDisplay.text = currentDisplay
-        operationIsRunning = false
         firstNumber = nil
         secondNumber = nil
     }
@@ -54,23 +57,26 @@ class ViewController: UIViewController {
             secondNumber = Double(mainDisplay.text!)
             
             if operatorType == "+" {
-                answer = String(firstNumber! + secondNumber!)
+                answer = String(format: "%.1f", firstNumber! + secondNumber!)
             }
             
             if operatorType == "-" {
-                answer = String(firstNumber! - secondNumber!)
+                answer = String(format: "%.1f", firstNumber! - secondNumber!)
             }
             
             if operatorType == "/" {
-                answer = String(firstNumber! / secondNumber!)
+                answer = String(format: "%.1f", firstNumber! / secondNumber!)
             }
             
             if operatorType == "x" {
-                answer = String(firstNumber! * secondNumber!)
+                answer = String(format: "%.1f", firstNumber! * secondNumber!)
             }
             
+            
+        
         currentDisplay = answer
         mainDisplay.text = currentDisplay
+        UserDefaults.standard.set(mainDisplay.text, forKey: "mainDisplay")
             
             
         if variableIsLocked == false {
@@ -80,6 +86,7 @@ class ViewController: UIViewController {
         
         firstNumber = nil
         secondNumber = nil
+        operationIsDisplayed = true
             
         }
         
@@ -89,6 +96,14 @@ class ViewController: UIViewController {
     
     // MARK: Number Pad Functionality
     @IBAction func pressedNumberPad(_ sender: UIButton) {
+        
+        if operationIsDisplayed == true {
+            
+            currentDisplay = ""
+            mainDisplay.text = currentDisplay
+            operationIsDisplayed = false
+            
+        }
    
     
         // Take the input from the tag on the button pressed, assign it to a readable variable
@@ -134,9 +149,9 @@ class ViewController: UIViewController {
         // Update the mainDisplay's text by accessing and reassigning the global variable to the text object
         mainDisplay.text = currentDisplay
         
-        
     }
  
+    // MARK: Lock/Un-lock Button
     
     @IBAction func updateVariableButtonStatus(_ sender: UIButton) {
         
@@ -259,9 +274,15 @@ class ViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        
         if let x = UserDefaults.standard.object(forKey: "variableInputButton") as? String {
             variableButton.setTitle(x, for: .normal)
         }
+        
+        if let y = UserDefaults.standard.object(forKey: "mainDisplay") as? String {
+            mainDisplay.text = y
+        }
+        
     }
     
 }
