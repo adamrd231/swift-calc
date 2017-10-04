@@ -105,6 +105,7 @@ class ViewController: UIViewController {
             
         }
    
+    
         // Take the input from the tag on the button pressed, assign it to a readable variable
         let inputRecieved = sender.tag - 1
         // Create a empty NumberPad Enumeration Variable for the switch statement to assign a value to
@@ -189,9 +190,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    
-    
     
     //MARK: Operator Button Functionality
  
