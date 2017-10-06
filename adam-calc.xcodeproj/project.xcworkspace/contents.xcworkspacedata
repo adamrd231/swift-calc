@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:adam-calc.xcodeproj">
+      location = "self:../adam-calc">
    </FileRef>
 </Workspace>
