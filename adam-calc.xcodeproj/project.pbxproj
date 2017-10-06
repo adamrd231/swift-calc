@@ -18,7 +18,6 @@
 		665B483F1F81899B00ED54BF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B483E1F81899B00ED54BF /* MessageUI.framework */; };
 		665B48411F8189A200ED54BF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48401F8189A200ED54BF /* StoreKit.framework */; };
 		665B48431F8189B700ED54BF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48421F8189B700ED54BF /* SystemConfiguration.framework */; };
-		66AB1A211F80164C003A0D86 /* calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66AB1A201F80164C003A0D86 /* calculator.swift */; };
 		66EA30271F78564F00284C45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EA30261F78564F00284C45 /* AppDelegate.swift */; };
 		66EA30291F78564F00284C45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EA30281F78564F00284C45 /* ViewController.swift */; };
 		66EA302C1F78565000284C45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EA302A1F78565000284C45 /* Main.storyboard */; };
@@ -57,12 +56,11 @@
 		665B483E1F81899B00ED54BF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		665B48401F8189A200ED54BF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		665B48421F8189B700ED54BF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		66AB1A201F80164C003A0D86 /* calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calculator.swift; sourceTree = "<group>"; };
 		66EA30231F78564F00284C45 /* adam-calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "adam-calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EA30261F78564F00284C45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EA30281F78564F00284C45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		66EA302B1F78565000284C45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		66EA302D1F78565000284C45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		66EA302D1F78565000284C45 /* Assets.xcassets */ = {isa = PBXFileReference; explicitFileType = wrapper.application; path = Assets.xcassets; sourceTree = "<group>"; };
 		66EA30301F78565000284C45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66EA30321F78565000284C45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		66EA30371F78565000284C45 /* adam-calcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "adam-calcTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,7 +151,6 @@
 			children = (
 				66EA30261F78564F00284C45 /* AppDelegate.swift */,
 				66EA30281F78564F00284C45 /* ViewController.swift */,
-				66AB1A201F80164C003A0D86 /* calculator.swift */,
 				66EA302A1F78565000284C45 /* Main.storyboard */,
 				66EA302D1F78565000284C45 /* Assets.xcassets */,
 				66EA302F1F78565000284C45 /* LaunchScreen.storyboard */,
@@ -248,7 +245,7 @@
 				TargetAttributes = {
 					66EA30221F78564F00284C45 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = M8R2LVVQ3Q;
+						DevelopmentTeam = 6SFM579B5E;
 						ProvisioningStyle = Automatic;
 					};
 					66EA30361F78565000284C45 = {
@@ -317,7 +314,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				66AB1A211F80164C003A0D86 /* calculator.swift in Sources */,
 				66EA30291F78564F00284C45 /* ViewController.swift in Sources */,
 				66EA30271F78564F00284C45 /* AppDelegate.swift in Sources */,
 			);
@@ -471,7 +467,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = M8R2LVVQ3Q;
+				DEVELOPMENT_TEAM = 6SFM579B5E;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDKs",
@@ -479,7 +475,7 @@
 				INFOPLIST_FILE = "adam-calc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "design.rdconcepts.adam-calc";
+				PRODUCT_BUNDLE_IDENTIFIER = design.rdconcepts.calc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -489,7 +485,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = M8R2LVVQ3Q;
+				DEVELOPMENT_TEAM = 6SFM579B5E;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SDKs",
@@ -497,7 +493,7 @@
 				INFOPLIST_FILE = "adam-calc/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "design.rdconcepts.adam-calc";
+				PRODUCT_BUNDLE_IDENTIFIER = design.rdconcepts.calc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

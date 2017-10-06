@@ -255,8 +255,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
-        // MARK: Google AdMob integration 
+        // MARK: Google AdMob integration
         
         GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
         GoogleBannerView.rootViewController = self
