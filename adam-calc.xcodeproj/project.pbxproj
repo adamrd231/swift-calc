@@ -18,6 +18,7 @@
 		665B483F1F81899B00ED54BF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B483E1F81899B00ED54BF /* MessageUI.framework */; };
 		665B48411F8189A200ED54BF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48401F8189A200ED54BF /* StoreKit.framework */; };
 		665B48431F8189B700ED54BF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48421F8189B700ED54BF /* SystemConfiguration.framework */; };
+		66C4C6971F89516C00A67C6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66FF1BE51F87549700A885F2 /* Assets.xcassets */; };
 		66EA30271F78564F00284C45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EA30261F78564F00284C45 /* AppDelegate.swift */; };
 		66EA30291F78564F00284C45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EA30281F78564F00284C45 /* ViewController.swift */; };
 		66EA302C1F78565000284C45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EA302A1F78565000284C45 /* Main.storyboard */; };
@@ -44,9 +45,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		66524DAA1F87E7C200B07279 /* 1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1024.png; path = ../../../1024.png; sourceTree = "<group>"; };
-		66524DAB1F87E7CA00B07279 /* 180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 180.png; path = ../../../180.png; sourceTree = "<group>"; };
-		66524DAC1F87E7CF00B07279 /* 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 120.png; path = ../../../120.png; sourceTree = "<group>"; };
 		665B482E1F81891300ED54BF /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = SDKs/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		665B48301F81896000ED54BF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		665B48321F81896700ED54BF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -151,9 +149,6 @@
 		66EA30251F78564F00284C45 /* adam-calc */ = {
 			isa = PBXGroup;
 			children = (
-				66524DAC1F87E7CF00B07279 /* 120.png */,
-				66524DAB1F87E7CA00B07279 /* 180.png */,
-				66524DAA1F87E7C200B07279 /* 1024.png */,
 				66EA30261F78564F00284C45 /* AppDelegate.swift */,
 				66EA30281F78564F00284C45 /* ViewController.swift */,
 				66EA302A1F78565000284C45 /* Main.storyboard */,
@@ -293,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66EA30311F78565000284C45 /* LaunchScreen.storyboard in Resources */,
+				66C4C6971F89516C00A67C6D /* Assets.xcassets in Resources */,
 				66EA302C1F78565000284C45 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
