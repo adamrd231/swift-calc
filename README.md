@@ -5,3 +5,5 @@ calculator designed in Swift
 Adam Reed
 Justin Reed
 RD Concepts LLC
+
+![alt text](http://url/to/layout.png)
