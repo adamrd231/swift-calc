@@ -13,6 +13,6 @@ The best place to remember things is in one view. Adam's calc add's a button to 
 ![Picture](https://github.com/adamrd231/swift-calc/blob/master/flow.png)
 
 ## Contributors 
-• Adam Reed
-• Justin Reed
-• RD Concepts LLC
+• Adam Reed <br>
+• Justin Reed <br>
+• RD Concepts LLC 
