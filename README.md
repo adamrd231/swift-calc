@@ -2,8 +2,8 @@
 The best place to remember things is in one view. Adam's calc add's a button to save previous sums, but all on the same screen. 
 
 ## Getting Started
-• Xcode 10
-• Swift 3
+• Xcode 10 <br>
+• Swift 3 <br>
 • iOS 10
 
 ## UI / UX
