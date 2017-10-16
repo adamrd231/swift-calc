@@ -26,6 +26,7 @@ var variable3IsLocked: Bool = false
 var containsDecimal: Bool = false
 
 
+// MARK: Main ViewController Class
 
 class ViewController: UIViewController {
     
@@ -39,9 +40,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var variableButton1: UIButton!
     @IBOutlet weak var variableButton2: UIButton!
     @IBOutlet weak var variableButton3: UIButton!
-    
-    
-    // MARK: Google adwords variable
+    //Google AdMob Variable to access smart Banner
     @IBOutlet weak var GoogleBannerView: GADBannerView!
     
     
@@ -117,7 +116,7 @@ class ViewController: UIViewController {
         
         if variable3IsLocked == false {
             variableButton3.setTitle(string_answer, for: .normal)
-            UserDefaults.standard.set(variableButton1.currentTitle, forKey: "variable3InputButton")
+            UserDefaults.standard.set(variableButton3.currentTitle, forKey: "variable3InputButton")
         }
             
         firstNumber = nil
@@ -211,10 +210,12 @@ class ViewController: UIViewController {
         if variable1IsLocked == true {
             variable1IsLocked = false
             lockButtonText1.setTitle("Un-Locked", for: .normal)
+            UserDefaults.standard.set(variable1IsLocked, forKey: "variableLockButton1")
         }
         else {
             variable1IsLocked = true
             lockButtonText1.setTitle("Locked", for: .normal)
+            UserDefaults.standard.set(variable1IsLocked, forKey: "variableLockButton1")
         }
         
     }
@@ -224,23 +225,27 @@ class ViewController: UIViewController {
         if variable2IsLocked == true {
             variable2IsLocked = false
             lockButtonText2.setTitle("Un-Locked", for: .normal)
+            UserDefaults.standard.set(variable2IsLocked, forKey: "variableLockButton2")
         }
         else {
             variable2IsLocked = true
             lockButtonText2.setTitle("Locked", for: .normal)
+            UserDefaults.standard.set(variable2IsLocked, forKey: "variableLockButton2")
         }
         
     }
     
-    @IBAction func updateLockStatus3(_ sender: Any) {
+    @IBAction func updateLockStatus3(_ sender: UIButton) {
         
         if variable3IsLocked == true {
             variable3IsLocked = false
             lockButtonText3.setTitle("Un-Locked", for: .normal)
+            UserDefaults.standard.set(variable3IsLocked, forKey: "variableLockButton3")
         }
         else {
             variable3IsLocked = true
             lockButtonText3.setTitle("Locked", for: .normal)
+            UserDefaults.standard.set(variable3IsLocked, forKey: "variableLockButton3")
         }
         
     }
@@ -329,6 +334,10 @@ class ViewController: UIViewController {
         
         // Ignore action if it contains a operator
         if currentDisplay == "/" || currentDisplay == "x" || currentDisplay == "-" || currentDisplay == "+" {
+            //Update the current display with the operation the user is performing
+            currentDisplay = sender.currentTitle!
+            mainDisplay.text = currentDisplay
+            operatorType = sender.currentTitle
             return
         }
         
@@ -404,7 +413,7 @@ class ViewController: UIViewController {
         
         // MARK: Google AdMob integration
         
-        GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        GoogleBannerView.adUnitID = "ca-app-pub-4186253562269967/3971400494"
         GoogleBannerView.rootViewController = self
         GoogleBannerView.load(GADRequest())
         
@@ -418,12 +427,55 @@ class ViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         
-        if let x = UserDefaults.standard.object(forKey: "variableInputButton") as? String {
-            variableButton1.setTitle(x, for: .normal)
+        if let variable1 = UserDefaults.standard.object(forKey: "variableInputButton") as? String {
+            variableButton1.setTitle(variable1, for: .normal)
         }
         
-        if let y = UserDefaults.standard.object(forKey: "mainDisplay") as? String {
-            mainDisplay.text = y
+        if let variable2 = UserDefaults.standard.object(forKey: "variable2InputButton") as? String {
+            variableButton2.setTitle(variable2, for: .normal)
+        }
+        
+        if let variable3 = UserDefaults.standard.object(forKey: "variable3InputButton") as? String {
+            variableButton3.setTitle(variable3, for: .normal)
+        }
+        
+        if let variableLock1 = UserDefaults.standard.object(forKey: "variableLockButton1") as? Bool {
+            if variableLock1 == false {
+                variable1IsLocked = false
+                lockButtonText1.setTitle("Un-Locked", for: .normal)
+            }
+            if variableLock1 == true {
+                variable1IsLocked = true
+                lockButtonText1.setTitle("Locked", for: .normal)
+            }
+        }
+        
+        if let variableLock2 = UserDefaults.standard.object(forKey: "variableLockButton2") as? Bool {
+            if variableLock2 == false {
+                variable2IsLocked = false
+                lockButtonText2.setTitle("Un-Locked", for: .normal)
+            }
+            if variableLock2 == true {
+                variable2IsLocked = true
+                lockButtonText2.setTitle("Locked", for: .normal)
+            }
+        }
+        
+        if let variableLock3 = UserDefaults.standard.object(forKey: "variableLockButton3") as? Bool {
+            if variableLock3 == false {
+                variable3IsLocked = false
+                lockButtonText3.setTitle("Un-Locked", for: .normal)
+            }
+            if variableLock3 == true {
+                variable3IsLocked = true
+                lockButtonText3.setTitle("Locked", for: .normal)
+            }
+        }
+        
+        
+        
+        if let mainDisplayNumber = UserDefaults.standard.object(forKey: "mainDisplay") as? String {
+            mainDisplay.text = mainDisplayNumber
         }
         
     }
