@@ -2,8 +2,8 @@
 The best place to remember things is in one view. Adam's calc add's a button for saving previous values, with the ability to lock important numbers in for future use.  
 
 ## iOS Apple Store
-V1.0 Released to App store October 27th, 2017.
-http://appstore.com/adam's_calc
+V1.0 Released to App store October 27th, 2017.<br>
+http://appstore.com/keynote
 
 ## Getting Started
 • Xcode 10 <br>
