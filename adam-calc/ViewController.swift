@@ -428,7 +428,7 @@ class ViewController: UIViewController {
         
         // MARK: Google AdMob integration
         
-        GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        GoogleBannerView.adUnitID = "ca-app-pub-4186253562269967/3971400494"
         GoogleBannerView.rootViewController = self
         GoogleBannerView.load(GADRequest())
         
