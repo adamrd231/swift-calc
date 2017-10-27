@@ -128,6 +128,19 @@ class ViewController: UIViewController {
         
     }
     
+    // MARK: Backspace Key Functionality
+    
+    @IBAction func pressedBackspace(_ sender: Any) {
+        if mainDisplay.text != "" {
+            currentDisplay.removeLast()
+            mainDisplay.text = currentDisplay
+        } else {
+            return
+        }
+        
+    }
+    
+    
 
     
     // MARK: Number Pad Functionality
@@ -148,6 +161,8 @@ class ViewController: UIViewController {
         var numberPressed = String()
         
         switch inputRecieved {
+        case "20":
+            numberPressed = "00"
         case "0":
             numberPressed = "0"
         case "1":
@@ -413,7 +428,7 @@ class ViewController: UIViewController {
         
         // MARK: Google AdMob integration
         
-        GoogleBannerView.adUnitID = "ca-app-pub-4186253562269967/3971400494"
+        GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
         GoogleBannerView.rootViewController = self
         GoogleBannerView.load(GADRequest())
         
