@@ -429,10 +429,10 @@ class ViewController: UIViewController {
         
         
         // ADMOB TEST UNIT, ONLY USE IN PRODUCTION
-        GoogleBannerView.adUnitID = "ca-app-pub-4186253562269967/3971400494"
+        //GoogleBannerView.adUnitID = "ca-app-pub-4186253562269967/3971400494"
         
         //Google test ad unit
-        //GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
         
         
         
