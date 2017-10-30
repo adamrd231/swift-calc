@@ -3,7 +3,7 @@ The best place to remember things is in one view. Adam's calc add's a button for
 
 ## iOS Apple Store
 V1.0 Released to App store October 27th, 2017.<br>
-http://appstore.com/Adam's-Calc
+https://itunes.apple.com/us/app/adams-calc/id1296681283?ls=1&mt=8
 
 ## Getting Started
 • Xcode 10 <br>
