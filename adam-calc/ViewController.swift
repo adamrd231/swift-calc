@@ -44,7 +44,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var GoogleBannerView: GADBannerView!
     
     
-    
     //MARK: Clear Button Functionality
     @IBAction func clearButton(_ sender: UIButton) {
         
@@ -131,7 +130,7 @@ class ViewController: UIViewController {
     // MARK: Backspace Key Functionality
     
     @IBAction func pressedBackspace(_ sender: Any) {
-        if mainDisplay.text != "" {
+        if currentDisplay != "" {
             currentDisplay.removeLast()
             mainDisplay.text = currentDisplay
         } else {
@@ -224,12 +223,12 @@ class ViewController: UIViewController {
         
         if variable1IsLocked == true {
             variable1IsLocked = false
-            lockButtonText1.setTitle("Un-Locked", for: .normal)
+            lockButtonText1.setTitle("Lock", for: .normal)
             UserDefaults.standard.set(variable1IsLocked, forKey: "variableLockButton1")
         }
         else {
             variable1IsLocked = true
-            lockButtonText1.setTitle("Locked", for: .normal)
+            lockButtonText1.setTitle("Un-Lock", for: .normal)
             UserDefaults.standard.set(variable1IsLocked, forKey: "variableLockButton1")
         }
         
@@ -239,12 +238,12 @@ class ViewController: UIViewController {
         
         if variable2IsLocked == true {
             variable2IsLocked = false
-            lockButtonText2.setTitle("Un-Locked", for: .normal)
+            lockButtonText2.setTitle("Lock", for: .normal)
             UserDefaults.standard.set(variable2IsLocked, forKey: "variableLockButton2")
         }
         else {
             variable2IsLocked = true
-            lockButtonText2.setTitle("Locked", for: .normal)
+            lockButtonText2.setTitle("Un-Lock", for: .normal)
             UserDefaults.standard.set(variable2IsLocked, forKey: "variableLockButton2")
         }
         
@@ -254,12 +253,12 @@ class ViewController: UIViewController {
         
         if variable3IsLocked == true {
             variable3IsLocked = false
-            lockButtonText3.setTitle("Un-Locked", for: .normal)
+            lockButtonText3.setTitle("Lock", for: .normal)
             UserDefaults.standard.set(variable3IsLocked, forKey: "variableLockButton3")
         }
         else {
             variable3IsLocked = true
-            lockButtonText3.setTitle("Locked", for: .normal)
+            lockButtonText3.setTitle("Un-Lock", for: .normal)
             UserDefaults.standard.set(variable3IsLocked, forKey: "variableLockButton3")
         }
         
@@ -428,7 +427,15 @@ class ViewController: UIViewController {
         
         // MARK: Google AdMob integration
         
+        
+        // ADMOB TEST UNIT, ONLY USE IN PRODUCTION
         GoogleBannerView.adUnitID = "ca-app-pub-4186253562269967/3971400494"
+        
+        //Google test ad unit
+        //GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        
+        
+        
         GoogleBannerView.rootViewController = self
         GoogleBannerView.load(GADRequest())
         
@@ -490,6 +497,7 @@ class ViewController: UIViewController {
         
         
         if let mainDisplayNumber = UserDefaults.standard.object(forKey: "mainDisplay") as? String {
+            currentDisplay = mainDisplayNumber
             mainDisplay.text = mainDisplayNumber
         }
         
