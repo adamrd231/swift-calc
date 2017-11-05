@@ -76,9 +76,11 @@ class ViewController: UIViewController {
         // Check to see if firstNumber is not nil
         // Check to see if there is a second number available
         
-        if firstNumber != nil && checkSecondNumber != nil && checkSecondNumber != "+" {
+        if firstNumber != nil && checkSecondNumber != nil && checkSecondNumber != "+" && checkSecondNumber != "x" && checkSecondNumber != "-" && checkSecondNumber != "/"  {
             
             secondNumber = Double(mainDisplay.text!)
+            
+            
             
             if operatorType == "+" {
                 answer = firstNumber! + secondNumber!
@@ -223,12 +225,12 @@ class ViewController: UIViewController {
         
         if variable1IsLocked == true {
             variable1IsLocked = false
-            lockButtonText1.setTitle("Lock", for: .normal)
+            lockButtonText1.setImage(#imageLiteral(resourceName: "unLockIcon"), for: .normal)
             UserDefaults.standard.set(variable1IsLocked, forKey: "variableLockButton1")
         }
         else {
             variable1IsLocked = true
-            lockButtonText1.setTitle("Un-Lock", for: .normal)
+            lockButtonText1.setImage(#imageLiteral(resourceName: "lockIcon"), for: .normal)
             UserDefaults.standard.set(variable1IsLocked, forKey: "variableLockButton1")
         }
         
@@ -238,12 +240,12 @@ class ViewController: UIViewController {
         
         if variable2IsLocked == true {
             variable2IsLocked = false
-            lockButtonText2.setTitle("Lock", for: .normal)
+            lockButtonText2.setImage(#imageLiteral(resourceName: "unLockIcon"), for: .normal)
             UserDefaults.standard.set(variable2IsLocked, forKey: "variableLockButton2")
         }
         else {
             variable2IsLocked = true
-            lockButtonText2.setTitle("Un-Lock", for: .normal)
+            lockButtonText2.setImage(#imageLiteral(resourceName: "lockIcon"), for: .normal)
             UserDefaults.standard.set(variable2IsLocked, forKey: "variableLockButton2")
         }
         
@@ -253,12 +255,12 @@ class ViewController: UIViewController {
         
         if variable3IsLocked == true {
             variable3IsLocked = false
-            lockButtonText3.setTitle("Lock", for: .normal)
+            lockButtonText3.setImage(#imageLiteral(resourceName: "unLockIcon"), for: .normal)
             UserDefaults.standard.set(variable3IsLocked, forKey: "variableLockButton3")
         }
         else {
             variable3IsLocked = true
-            lockButtonText3.setTitle("Un-Lock", for: .normal)
+            lockButtonText3.setImage(#imageLiteral(resourceName: "lockIcon"), for: .normal)
             UserDefaults.standard.set(variable3IsLocked, forKey: "variableLockButton3")
         }
         
@@ -464,33 +466,33 @@ class ViewController: UIViewController {
         if let variableLock1 = UserDefaults.standard.object(forKey: "variableLockButton1") as? Bool {
             if variableLock1 == false {
                 variable1IsLocked = false
-                lockButtonText1.setTitle("Un-Locked", for: .normal)
+                lockButtonText1.setImage(#imageLiteral(resourceName: "unLockIcon"), for: .normal)
             }
             if variableLock1 == true {
                 variable1IsLocked = true
-                lockButtonText1.setTitle("Locked", for: .normal)
+                lockButtonText1.setImage(#imageLiteral(resourceName: "lockIcon"), for: .normal)
             }
         }
         
         if let variableLock2 = UserDefaults.standard.object(forKey: "variableLockButton2") as? Bool {
             if variableLock2 == false {
                 variable2IsLocked = false
-                lockButtonText2.setTitle("Un-Locked", for: .normal)
+                lockButtonText2.setImage(#imageLiteral(resourceName: "unLockIcon"), for: .normal)
             }
             if variableLock2 == true {
                 variable2IsLocked = true
-                lockButtonText2.setTitle("Locked", for: .normal)
+                lockButtonText2.setImage(#imageLiteral(resourceName: "lockIcon"), for: .normal)
             }
         }
         
         if let variableLock3 = UserDefaults.standard.object(forKey: "variableLockButton3") as? Bool {
             if variableLock3 == false {
                 variable3IsLocked = false
-                lockButtonText3.setTitle("Un-Locked", for: .normal)
+                lockButtonText3.setImage(#imageLiteral(resourceName: "unLockIcon"), for: .normal)
             }
             if variableLock3 == true {
                 variable3IsLocked = true
-                lockButtonText3.setTitle("Locked", for: .normal)
+                lockButtonText3.setImage(#imageLiteral(resourceName: "lockIcon"), for: .normal)
             }
         }
         

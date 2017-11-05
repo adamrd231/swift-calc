@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O6r-Ng-Sdf">
-    <device id="retina5_5" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O6r-Ng-Sdf">
+    <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,17 +28,17 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="CIz-r0-YiJ">
-                                <rect key="frame" x="0.0" y="25" width="414" height="612"/>
+                                <rect key="frame" x="0.0" y="25" width="768" height="900"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nIX-jV-VuN">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="86.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="127.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7k-V0-JMM">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="86.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="768" height="127.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="50"/>
                                                 <nil key="textColor"/>
@@ -47,13 +47,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="vFE-Gw-j1U">
-                                        <rect key="frame" x="0.0" y="87.666666666666686" width="414" height="86.333333333333314"/>
+                                        <rect key="frame" x="0.0" y="128.5" width="768" height="128"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wo6-dA-EuY">
-                                                <rect key="frame" x="0.0" y="0.0" width="136.66666666666666" height="86.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="254.5" height="128"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBA-Ap-RpK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="136.66666666666666" height="42.666666666666664"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="254.5" height="63.5"/>
                                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="26"/>
                                                         <state key="normal" title="( x )">
@@ -63,10 +63,10 @@
                                                             <action selector="pressedVariableButton3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KCk-s7-BPw"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r80-qf-UIu">
-                                                        <rect key="frame" x="0.0" y="43.666666666666671" width="136.66666666666666" height="42.666666666666671"/>
-                                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
-                                                        <state key="normal" title="Lock"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r80-qf-UIu">
+                                                        <rect key="frame" x="0.0" y="64.5" width="254.5" height="63.5"/>
+                                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" image="unLockIcon"/>
                                                         <connections>
                                                             <action selector="updateLockStatus3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h6N-Xw-Dhl"/>
                                                         </connections>
@@ -74,10 +74,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="aWK-BN-tID">
-                                                <rect key="frame" x="138.66666666666669" y="0.0" width="136.66666666666669" height="86.333333333333329"/>
+                                                <rect key="frame" x="256.5" y="0.0" width="255" height="128"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TO-YL-PWf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="136.66666666666666" height="42.666666666666664"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="255" height="63.5"/>
                                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="26"/>
                                                         <state key="normal" title="( y )">
@@ -87,10 +87,11 @@
                                                             <action selector="pressedVariableButton2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8BY-Q5-BA3"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmK-qx-9bs">
-                                                        <rect key="frame" x="0.0" y="43.666666666666671" width="136.66666666666666" height="42.666666666666671"/>
-                                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
-                                                        <state key="normal" title="Lock"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmK-qx-9bs">
+                                                        <rect key="frame" x="0.0" y="64.5" width="255" height="63.5"/>
+                                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="6"/>
+                                                        <state key="normal" image="unLockIcon"/>
                                                         <connections>
                                                             <action selector="updateLockStatus2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XWq-Sq-rrP"/>
                                                         </connections>
@@ -98,10 +99,10 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="08C-DZ-loI">
-                                                <rect key="frame" x="277.33333333333331" y="0.0" width="136.66666666666669" height="86.333333333333329"/>
+                                                <rect key="frame" x="513.5" y="0.0" width="254.5" height="128"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRv-Ru-DF0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="136.66666666666666" height="42.666666666666664"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="254.5" height="63.5"/>
                                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="26"/>
                                                         <state key="normal" title="( z )">
@@ -111,10 +112,10 @@
                                                             <action selector="pressedVariableButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wkR-ek-Dot"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rW-6A-eXa">
-                                                        <rect key="frame" x="0.0" y="43.666666666666671" width="136.66666666666666" height="42.666666666666671"/>
-                                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
-                                                        <state key="normal" title="Lock"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rW-6A-eXa">
+                                                        <rect key="frame" x="0.0" y="64.5" width="254.5" height="63.5"/>
+                                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" image="unLockIcon"/>
                                                         <connections>
                                                             <action selector="updateVariableButtonStatus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kRh-Lq-ahR"/>
                                                         </connections>
@@ -124,10 +125,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fm9-SF-pCY">
-                                        <rect key="frame" x="0.0" y="175" width="414" height="86.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="257.5" width="768" height="127.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6A6-8d-Tlx">
-                                                <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="86.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="191.5" height="127.5"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="7">
@@ -138,7 +139,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dvq-AW-d7T">
-                                                <rect key="frame" x="103.66666666666669" y="0.0" width="103" height="86.666666666666671"/>
+                                                <rect key="frame" x="192.5" y="0.0" width="191" height="127.5"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="8">
@@ -149,7 +150,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8V-Tr-h32">
-                                                <rect key="frame" x="207.66666666666666" y="0.0" width="102.66666666666666" height="86.666666666666671"/>
+                                                <rect key="frame" x="384.5" y="0.0" width="191.5" height="127.5"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="9">
@@ -160,7 +161,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x54-Ky-rUv">
-                                                <rect key="frame" x="311.33333333333331" y="0.0" width="102.66666666666669" height="86.666666666666671"/>
+                                                <rect key="frame" x="577" y="0.0" width="191" height="127.5"/>
                                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="/">
@@ -173,10 +174,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="cXP-zx-h8E">
-                                        <rect key="frame" x="0.0" y="262.66666666666669" width="414" height="86.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="386" width="768" height="128"/>
                                         <subviews>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXq-wq-NkL">
-                                                <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="86.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="191.5" height="128"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="4">
@@ -187,7 +188,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJ2-kK-xQu">
-                                                <rect key="frame" x="103.66666666666669" y="0.0" width="103" height="86.666666666666671"/>
+                                                <rect key="frame" x="192.5" y="0.0" width="191" height="128"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="5">
@@ -198,7 +199,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rc-6s-B8p">
-                                                <rect key="frame" x="207.66666666666666" y="0.0" width="102.66666666666666" height="86.666666666666671"/>
+                                                <rect key="frame" x="384.5" y="0.0" width="191.5" height="128"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="6">
@@ -209,7 +210,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8OL-G3-3Pi">
-                                                <rect key="frame" x="311.33333333333331" y="0.0" width="102.66666666666669" height="86.666666666666671"/>
+                                                <rect key="frame" x="577" y="0.0" width="191" height="128"/>
                                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="-">
@@ -222,10 +223,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="mhQ-ho-Bzk">
-                                        <rect key="frame" x="0.0" y="350.33333333333331" width="414" height="86.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="515" width="768" height="127.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJX-1a-Bld">
-                                                <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="86.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="191.5" height="127.5"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="1">
@@ -236,7 +237,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npf-KP-kQK">
-                                                <rect key="frame" x="103.66666666666669" y="0.0" width="103" height="86.666666666666671"/>
+                                                <rect key="frame" x="192.5" y="0.0" width="191" height="127.5"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="2">
@@ -247,7 +248,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0el-b9-RqP">
-                                                <rect key="frame" x="207.66666666666666" y="0.0" width="102.66666666666666" height="86.666666666666671"/>
+                                                <rect key="frame" x="384.5" y="0.0" width="191.5" height="127.5"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="3">
@@ -258,7 +259,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anT-pV-h5v">
-                                                <rect key="frame" x="311.33333333333331" y="0.0" width="102.66666666666669" height="86.666666666666671"/>
+                                                <rect key="frame" x="577" y="0.0" width="191" height="127.5"/>
                                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="x">
@@ -271,10 +272,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="vlF-nC-l22">
-                                        <rect key="frame" x="0.0" y="438" width="414" height="86.333333333333371"/>
+                                        <rect key="frame" x="0.0" y="643.5" width="768" height="128"/>
                                         <subviews>
                                             <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1C-g0-0bJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="102.66666666666667" height="86.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="191.5" height="128"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="00">
@@ -285,7 +286,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCq-wa-weh">
-                                                <rect key="frame" x="103.66666666666669" y="0.0" width="103" height="86.333333333333329"/>
+                                                <rect key="frame" x="192.5" y="0.0" width="191" height="128"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="0">
@@ -296,7 +297,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gln-Qu-ef7">
-                                                <rect key="frame" x="207.66666666666666" y="0.0" width="102.66666666666666" height="86.333333333333329"/>
+                                                <rect key="frame" x="384.5" y="0.0" width="191.5" height="128"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="40"/>
                                                 <state key="normal" title=".">
@@ -307,7 +308,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znr-ue-b0Z">
-                                                <rect key="frame" x="311.33333333333331" y="0.0" width="102.66666666666669" height="86.333333333333329"/>
+                                                <rect key="frame" x="577" y="0.0" width="191" height="128"/>
                                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="+">
@@ -320,10 +321,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="LPL-mH-ViB">
-                                        <rect key="frame" x="0.0" y="525.33333333333337" width="414" height="86.666666666666629"/>
+                                        <rect key="frame" x="0.0" y="772.5" width="768" height="127.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4HR-SO-P74">
-                                                <rect key="frame" x="0.0" y="0.0" width="136.66666666666666" height="86.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="254.5" height="127.5"/>
                                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <state key="normal" title=" " backgroundImage="backspace">
@@ -334,7 +335,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GX3-QE-TDn">
-                                                <rect key="frame" x="138.66666666666669" y="0.0" width="136.66666666666669" height="86.666666666666671"/>
+                                                <rect key="frame" x="256.5" y="0.0" width="255" height="127.5"/>
                                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="36"/>
                                                 <state key="normal" title="C">
@@ -345,7 +346,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbo-aW-zto">
-                                                <rect key="frame" x="277.33333333333331" y="0.0" width="136.66666666666669" height="86.666666666666671"/>
+                                                <rect key="frame" x="513.5" y="0.0" width="254.5" height="127.5"/>
                                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="84"/>
                                                 <state key="normal" title="=">
@@ -360,10 +361,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vMk-eh-gfu">
-                                <rect key="frame" x="0.0" y="637" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="925" width="768" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJV-zw-cUw" customClass="GADBannerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="0Kd-OE-5h4"/>
                                             <constraint firstAttribute="height" constant="50" id="3uH-9H-Ct8"/>
@@ -433,68 +434,68 @@
                         <viewControllerLayoutGuide type="bottom" id="jSY-wY-ndp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QLE-9d-hFt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="9ff-KG-55p">
-                                <rect key="frame" x="30" y="69.999999999999986" width="354" height="243.66666666666663"/>
+                                <rect key="frame" x="30" y="70" width="708" height="247"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to use Adam's Calc" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35V-rw-9cC">
-                                        <rect key="frame" x="0.0" y="0.0" width="179.33333333333334" height="21.666666666666668"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="179.5" height="22"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Perform calculations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Guf-Vw-wH7">
-                                        <rect key="frame" x="0.0" y="24.666666666666671" width="109.33333333333333" height="21.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="25" width="109.5" height="22"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answers from every operation are sent to 3 buttons" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKv-41-J5f">
-                                        <rect key="frame" x="0.0" y="49.333333333333329" width="274.66666666666669" height="21.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="50" width="274.5" height="22"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can &quot;lock&quot; each button to save the value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KX5-Aj-JxJ">
-                                        <rect key="frame" x="0.0" y="74" width="239.66666666666666" height="21.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="75" width="239.5" height="22"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use the locked value in new equations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWe-GD-pvw">
-                                        <rect key="frame" x="0.0" y="98.666666666666657" width="204.33333333333334" height="21.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="100" width="204.5" height="22"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adam's Calc will save your numbers for you" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXt-9C-IgD">
-                                        <rect key="frame" x="0.0" y="123.33333333333336" width="234" height="21.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="125" width="234" height="22"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFx-RQ-4tZ">
-                                        <rect key="frame" x="0.0" y="148" width="3.6666666666666665" height="21.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="150" width="4" height="22"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggestions? Questions? Haiku's?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZd-Z2-WxF">
-                                        <rect key="frame" x="0.0" y="172.66666666666666" width="260.66666666666669" height="21.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="175" width="260.5" height="22"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="info@rdConcepts.design" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1w-8S-ZPV">
-                                        <rect key="frame" x="0.0" y="197.33333333333331" width="130" height="21.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="200" width="130" height="22"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="www.rdconcepts.design/contact" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntj-2q-ViQ">
-                                        <rect key="frame" x="0.0" y="222" width="169" height="21.666666666666657"/>
+                                        <rect key="frame" x="0.0" y="225" width="169" height="22"/>
                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -524,5 +525,6 @@
         <image name="backspace" width="150" height="150"/>
         <image name="tabMenuCalculator" width="30" height="30"/>
         <image name="tabMenuInstructions" width="30" height="30"/>
+        <image name="unLockIcon" width="50" height="50"/>
     </resources>
 </document>
