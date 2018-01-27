@@ -125,6 +125,10 @@ class ViewController: UIViewController {
         operationIsDisplayed = true
         containsDecimal = false
             
+            if operationIsDisplayed == true {
+                UserDefaults.standard.set(true, forKey: "operationIsDisplayed")
+            }
+            
         }
         
     }
@@ -428,13 +432,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         // MARK: Google AdMob integration
-        
-        
         // ADMOB TEST UNIT, ONLY USE IN PRODUCTION
-        //GoogleBannerView.adUnitID = "ca-app-pub-4186253562269967/3971400494"
+        GoogleBannerView.adUnitID = "ca-app-pub-4186253562269967/3971400494"
         
         //Google test ad unit
-        GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        //GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
         
         
         
@@ -496,6 +498,16 @@ class ViewController: UIViewController {
             }
         }
         
+        if let operationIsDisplayedCurrently = UserDefaults.standard.object(forKey: "operationIsDisplayed") as? Bool {
+            if operationIsDisplayedCurrently == true {
+                operationIsDisplayed = true
+            }
+            if operationIsDisplayedCurrently == false {
+                operationIsDisplayed = false
+            }
+            
+        }
+
         
         
         if let mainDisplayNumber = UserDefaults.standard.object(forKey: "mainDisplay") as? String {
