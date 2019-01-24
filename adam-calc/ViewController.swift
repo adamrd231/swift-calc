@@ -9,512 +9,255 @@
 import UIKit
 import GoogleMobileAds
 
-
-// MARK: Global Variables
-// Variable for the current string of information on the main screen
-var currentDisplay:String = ""
-var operationIsDisplayed: Bool = false
-var operatorType:String?
-var firstNumber:Double?
-var secondNumber:Double?
-var answer:Double?
-var string_answer:String = ""
-var typeDoubleAnswer:Double?
-var variable1IsLocked: Bool = false
-var variable2IsLocked: Bool = false
-var variable3IsLocked: Bool = false
-var containsDecimal: Bool = false
-
-
 // MARK: Main ViewController Class
-
 class ViewController: UIViewController {
-    
-    //Variables from the UI saved into my ViewController Class to be used in button functionality etc.
-    @IBOutlet weak var mainDisplay: UILabel!
-    
-    @IBOutlet weak var lockButtonText1: UIButton!
-    @IBOutlet weak var lockButtonText2: UIButton!
-    @IBOutlet weak var lockButtonText3: UIButton!
-    
-    @IBOutlet weak var variableButton1: UIButton!
-    @IBOutlet weak var variableButton2: UIButton!
-    @IBOutlet weak var variableButton3: UIButton!
-    //Google AdMob Variable to access smart Banner
-    @IBOutlet weak var GoogleBannerView: GADBannerView!
-    
-    
-    //MARK: Clear Button Functionality
-    @IBAction func clearButton(_ sender: UIButton) {
-        
-        if variable1IsLocked == false {
-            variableButton1.setTitle("( x )", for: .normal)
-        }
-        
-        if variable2IsLocked == false {
-            variableButton2.setTitle("( y )", for: .normal)
-        }
-        
-        if variable3IsLocked == false {
-            variableButton3.setTitle("( z )", for: .normal)
-        }
-        
-        currentDisplay = ""
-        mainDisplay.text = currentDisplay
-        firstNumber = nil
-        secondNumber = nil
-        containsDecimal = false
-    }
-    
-    //MARK: Equals button functionality
-    
-    @IBAction func pressedEqualsButton(_ sender: UIButton) {
-        
-        let checkSecondNumber = String(mainDisplay.text!)
-        
-        
-        // Check to see if firstNumber is not nil
-        // Check to see if there is a second number available
-        
-        if firstNumber != nil && checkSecondNumber != nil && checkSecondNumber != "+" && checkSecondNumber != "x" && checkSecondNumber != "-" && checkSecondNumber != "/"  {
-            
-            secondNumber = Double(mainDisplay.text!)
-            
-            
-            
-            if operatorType == "+" {
-                answer = firstNumber! + secondNumber!
-            }
-            
-            if operatorType == "-" {
-                answer = firstNumber! - secondNumber!
-            }
-            
-            if operatorType == "/" {
-                answer = firstNumber! / secondNumber!
-            }
-            
-            if operatorType == "x" {
-                answer = firstNumber! * secondNumber!
-            }
-            
-            string_answer = String(format: "%.2f", answer!)
-        
-        currentDisplay = string_answer
-        mainDisplay.text = currentDisplay
-        UserDefaults.standard.set(mainDisplay.text, forKey: "mainDisplay")
-            
-            
-        if variable1IsLocked == false {
-            variableButton1.setTitle(string_answer, for: .normal)
-            UserDefaults.standard.set(variableButton1.currentTitle, forKey: "variableInputButton")
-        }
-            
-        if variable2IsLocked == false {
-            variableButton2.setTitle(string_answer, for: .normal)
-            UserDefaults.standard.set(variableButton2.currentTitle, forKey: "variable2InputButton")
-        }
-        
-        if variable3IsLocked == false {
-            variableButton3.setTitle(string_answer, for: .normal)
-            UserDefaults.standard.set(variableButton3.currentTitle, forKey: "variable3InputButton")
-        }
-            
-        firstNumber = nil
-        secondNumber = nil
-        operationIsDisplayed = true
-        containsDecimal = false
-            
-            if operationIsDisplayed == true {
-                UserDefaults.standard.set(true, forKey: "operationIsDisplayed")
-            }
-            
-        }
-        
-    }
-    
-    // MARK: Backspace Key Functionality
-    
-    @IBAction func pressedBackspace(_ sender: Any) {
-        if currentDisplay != "" {
-            currentDisplay.removeLast()
-            mainDisplay.text = currentDisplay
-        } else {
-            return
-        }
-        
-    }
-    
+    // MARK: Global Variables
+    // Variable for the current string of information on the main screen
+    var calculator = Calculator()
+    let numberFormatter = NumberFormatter()
+    var placeholderLockedOne = false
+    var placeholderLockedTwo = false
+    var placeholderLockedThree = false
+    let lockImage: UIImage = UIImage(named:"lockIcon")!
+    let unLockImage: UIImage = UIImage(named:"unLockIcon")!
     
 
-    
-    // MARK: Number Pad Functionality
-    @IBAction func pressedNumberPad(_ sender: UIButton) {
-        
-        if operationIsDisplayed == true {
-            
-            currentDisplay = ""
-            mainDisplay.text = currentDisplay
-            operationIsDisplayed = false
-            
-        }
-
-            
-        // Take the input from the tag on the button pressed, assign it to a readable variable
-        let inputRecieved:String = String(sender.tag - 1)
-        // Create a empty NumberPad Enumeration Variable for the switch statement to assign a value to
-        var numberPressed = String()
-        
-        switch inputRecieved {
-        case "20":
-            numberPressed = "00"
-        case "0":
-            numberPressed = "0"
-        case "1":
-            numberPressed = "1"
-        case "2":
-            numberPressed = "2"
-        case "3":
-            numberPressed = "3"
-        case "4":
-            numberPressed = "4"
-        case "5":
-            numberPressed = "5"
-        case "6":
-            numberPressed = "6"
-        case "7":
-            numberPressed = "7"
-        case "8":
-            numberPressed = "8"
-        case "9":
-            numberPressed = "9"
-        case "19":
-            numberPressed = "."
-        default:
-            numberPressed = "cold"
-        }
-        
-        // Clear out the currentDisplay variable if it contains a operator
-        if currentDisplay == "/" || currentDisplay == "x" || currentDisplay == "-" || currentDisplay == "+" {
-            currentDisplay = ""
-        }
-        
-        
-        for char in currentDisplay {
-            
-            if char == "." {
-                containsDecimal = true
-            }
-            
-        }
-        
-        if numberPressed == "." && containsDecimal == true {
-            
-            return
-            
-        }
-        
-        // Append the character the the end of the current string using the mainDisplay global variable
-        currentDisplay.append(numberPressed)
-        // Update the mainDisplay's text by accessing and reassigning the global variable to the text object
-        mainDisplay.text = currentDisplay
-        
-    }
-    
-    
- 
-    // MARK: Lock/Un-lock Buttons
-    
-    @IBAction func updateVariableButtonStatus(_ sender: UIButton) {
-        
-        if variable1IsLocked == true {
-            variable1IsLocked = false
-            lockButtonText1.setImage(#imageLiteral(resourceName: "unLockIcon"), for: .normal)
-            UserDefaults.standard.set(variable1IsLocked, forKey: "variableLockButton1")
-        }
-        else {
-            variable1IsLocked = true
-            lockButtonText1.setImage(#imageLiteral(resourceName: "lockIcon"), for: .normal)
-            UserDefaults.standard.set(variable1IsLocked, forKey: "variableLockButton1")
-        }
-        
-    }
-    
-    @IBAction func updateLockStatus2(_ sender: UIButton) {
-        
-        if variable2IsLocked == true {
-            variable2IsLocked = false
-            lockButtonText2.setImage(#imageLiteral(resourceName: "unLockIcon"), for: .normal)
-            UserDefaults.standard.set(variable2IsLocked, forKey: "variableLockButton2")
-        }
-        else {
-            variable2IsLocked = true
-            lockButtonText2.setImage(#imageLiteral(resourceName: "lockIcon"), for: .normal)
-            UserDefaults.standard.set(variable2IsLocked, forKey: "variableLockButton2")
-        }
-        
-    }
-    
-    @IBAction func updateLockStatus3(_ sender: UIButton) {
-        
-        if variable3IsLocked == true {
-            variable3IsLocked = false
-            lockButtonText3.setImage(#imageLiteral(resourceName: "unLockIcon"), for: .normal)
-            UserDefaults.standard.set(variable3IsLocked, forKey: "variableLockButton3")
-        }
-        else {
-            variable3IsLocked = true
-            lockButtonText3.setImage(#imageLiteral(resourceName: "lockIcon"), for: .normal)
-            UserDefaults.standard.set(variable3IsLocked, forKey: "variableLockButton3")
-        }
-        
-    }
-    
-    
-    
-    
-    // MARK: Variable Button Input
-    
-    @IBAction func pressedVariableButton(_ sender: UIButton) {
-        
-        if firstNumber == nil {
-            
-            if Double(variableButton1.currentTitle!) != nil {
-            
-                currentDisplay = variableButton1.currentTitle!
-                mainDisplay.text = currentDisplay
-            }
-            
-        }
-            
-        else if secondNumber == nil {
-            
-            if Double(variableButton1.currentTitle!) != nil {
-                
-                currentDisplay = variableButton1.currentTitle!
-                mainDisplay.text = currentDisplay
-            
-            }
-        }
-    }
-    
-    @IBAction func pressedVariableButton2(_ sender: Any) {
-        
-        if firstNumber == nil {
-            
-            if Double(variableButton2.currentTitle!) != nil {
-                
-                currentDisplay = variableButton2.currentTitle!
-                mainDisplay.text = currentDisplay
-            }
-            
-        }
-            
-        else if secondNumber == nil {
-            
-            if Double(variableButton2.currentTitle!) != nil {
-                
-                currentDisplay = variableButton2.currentTitle!
-                mainDisplay.text = currentDisplay
-                
-            }
-        }
-    }
-    
-    @IBAction func pressedVariableButton3(_ sender: Any) {
-        
-        
-        if firstNumber == nil {
-            
-            if Double(variableButton3.currentTitle!) != nil {
-                
-                currentDisplay = variableButton3.currentTitle!
-                mainDisplay.text = currentDisplay
-            }
-            
-        }
-            
-        else if secondNumber == nil {
-            
-            if Double(variableButton3.currentTitle!) != nil {
-                
-                currentDisplay = variableButton3.currentTitle!
-                mainDisplay.text = currentDisplay
-                
-            }
-        }
-        
-    }
-    
-    
-    
-    //MARK: Operator Button Functionality
- 
-    @IBAction func pressedOperatorButton(_ sender: UIButton) {
-        
-        // Ignore action if it contains a operator
-        if currentDisplay == "/" || currentDisplay == "x" || currentDisplay == "-" || currentDisplay == "+" {
-            //Update the current display with the operation the user is performing
-            currentDisplay = sender.currentTitle!
-            mainDisplay.text = currentDisplay
-            operatorType = sender.currentTitle
-            return
-        }
-        
-        
-        if firstNumber == nil {
-            
-            // If there is a number displayed on screen, save it to the first number variable
-            firstNumber = Double(currentDisplay)
-            
-            //Update the current display with the operation the user is performing
-            currentDisplay = sender.currentTitle!
-            mainDisplay.text = currentDisplay
-            operatorType = sender.currentTitle
-            
-            
-        } else if secondNumber == nil {
-            
-            if let checkSecondNumber = Double(mainDisplay.text!) {
-                secondNumber = checkSecondNumber
-            }
-            
-            if operatorType == "+" {
-                answer = firstNumber! + secondNumber!
-            }
-            
-            if operatorType == "-" {
-                answer = firstNumber! - secondNumber!
-            }
-            
-            if operatorType == "/" {
-                answer = firstNumber! / secondNumber!
-            }
-            
-            if operatorType == "x" {
-                answer = firstNumber! * secondNumber!
-            }
-            
-            string_answer = String(format: "%.2f", answer!)
-            
-            // Update the variable answer buttons if not locked
-            if variable1IsLocked == false {
-                variableButton1.setTitle(string_answer, for: .normal)
-            }
-            
-            if variable2IsLocked == false {
-                variableButton2.setTitle(string_answer, for: .normal)
-            }
-            
-            if variable3IsLocked == false {
-                variableButton3.setTitle(string_answer, for: .normal)
-            }
-  
-            
-            //Update the current display with the operation the user is performing
-            currentDisplay = sender.currentTitle!
-            mainDisplay.text = currentDisplay
-            firstNumber = Double(string_answer)
-            secondNumber = nil
-            operatorType = sender.currentTitle
-            
-        } else {
-            mainDisplay.text = "Please enter a number to start"
-        }
-        
-        containsDecimal = false
-        
-    }
-    
-
+    //MARK: Setting up the calculator inputs for the first time.
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        calculator.answer = ""
+        numberFormatter.numberStyle = .decimal
+        //Set the format style for display
+
+    }
+    
+    //MARK: IBOutlet Variables
+    @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var operatorDisplay: UILabel!
+    @IBOutlet weak var leftSideNumber: UILabel!
+    @IBOutlet weak var rightSideNumber: UILabel!
+    
+    //MARK: IBAction outlets
+    @IBAction func pressedClearButton(_ sender: Any) {
+        calculator.clearButton(calc: calculator)
+        updateLeftNumber()
+        updateRightNumber()
+        print(calculator.answer)
+        updateDisplayLabels()
+        updateOperator()
+    }
+    
+    @IBAction func pressedBackspace(_ sender: Any) {
         
-        // MARK: Google AdMob integration
-        // ADMOB TEST UNIT, ONLY USE IN PRODUCTION
-        GoogleBannerView.adUnitID = "ca-app-pub-4186253562269967/3971400494"
+        if calculator.leftNumber == "" {
+            return
+        }
         
-        //Google test ad unit
-        //GoogleBannerView.adUnitID = "ca-app-pub-3940256099942544/6300978111"
+        if calculator.currentOperator != "" {
+            if calculator.rightNumber == "" {
+                return
+            }
+            calculator.rightNumber.removeLast()
+            updateRightNumber()
+        } else {
+            calculator.leftNumber.removeLast()
+            updateLeftNumber()
+        }
+        //backspaceButton()
+    }
+    
+    @IBAction func pressedPeriodButton(_ sender: Any) {
+        //periodButton()
+        if calculator.leftNumber == "" {
+            calculator.leftNumber = "0."
+            leftSideNumber.text = calculator.leftNumber
+            return
+        }
         
-        
-        
-        GoogleBannerView.rootViewController = self
-        GoogleBannerView.load(GADRequest())
-        
+        if calculator.currentOperator != "" {
+            if calculator.rightNumber == "" {
+                calculator.rightNumber = "0."
+                rightSideNumber.text = calculator.rightNumber
+                return
+            }
+            for char in calculator.rightNumber {
+                if char == "." {
+                    return
+                }
+            }
+            calculator.rightNumber.append(".")
+            rightSideNumber.text = calculator.rightNumber
+        } else {
+            for char in calculator.leftNumber {
+                if char == "." {
+                    return
+                }
+            }
+            calculator.leftNumber.append(".")
+            leftSideNumber.text = calculator.leftNumber
+        }
+        //backspaceButton()
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func pressedEqualsButton(_ sender: Any) {
+        calculator.doingMath(calc: calculator, sender: "Equals")
+        updateRightNumber()
+        updateLeftNumber()
+        updateDisplayLabels()
+        updateVariableButtons()
     }
+    
+    @IBAction func PressedOperatorButton(_ sender: UIButton) {
+        let operatorInput = sender.currentTitle
+        
+        if calculator.leftNumber == "" {
+            return
+        }
+        
+        // If no operator, select operator and save to operator display label
+        if calculator.currentOperator == "" {
+            calculator.currentOperator = operatorInput!
+            updateOperator()
+            
+        // If user wants to change operator mid-operation, allows to update without performing the math
+        } else if calculator.currentOperator != "" && calculator.rightNumber == "" {
+            calculator.currentOperator = operatorInput!
+            updateOperator()
+            
+        } else if calculator.currentOperator != "" && calculator.leftNumber != nil && calculator.rightNumber != nil {
+            //operate the two numbers together
+            calculator.doingMath(calc: calculator, sender: "Operator")
+            // Set the new operator on the screen
+            calculator.currentOperator = sender.title(for: .normal)!
+            updateOperator()
 
-    override func viewDidAppear(_ animated: Bool) {
-        
-        if let variable1 = UserDefaults.standard.object(forKey: "variableInputButton") as? String {
-            variableButton1.setTitle(variable1, for: .normal)
-        }
-        
-        if let variable2 = UserDefaults.standard.object(forKey: "variable2InputButton") as? String {
-            variableButton2.setTitle(variable2, for: .normal)
-        }
-        
-        if let variable3 = UserDefaults.standard.object(forKey: "variable3InputButton") as? String {
-            variableButton3.setTitle(variable3, for: .normal)
-        }
-        
-        if let variableLock1 = UserDefaults.standard.object(forKey: "variableLockButton1") as? Bool {
-            if variableLock1 == false {
-                variable1IsLocked = false
-                lockButtonText1.setImage(#imageLiteral(resourceName: "unLockIcon"), for: .normal)
-            }
-            if variableLock1 == true {
-                variable1IsLocked = true
-                lockButtonText1.setImage(#imageLiteral(resourceName: "lockIcon"), for: .normal)
-            }
-        }
-        
-        if let variableLock2 = UserDefaults.standard.object(forKey: "variableLockButton2") as? Bool {
-            if variableLock2 == false {
-                variable2IsLocked = false
-                lockButtonText2.setImage(#imageLiteral(resourceName: "unLockIcon"), for: .normal)
-            }
-            if variableLock2 == true {
-                variable2IsLocked = true
-                lockButtonText2.setImage(#imageLiteral(resourceName: "lockIcon"), for: .normal)
-            }
-        }
-        
-        if let variableLock3 = UserDefaults.standard.object(forKey: "variableLockButton3") as? Bool {
-            if variableLock3 == false {
-                variable3IsLocked = false
-                lockButtonText3.setImage(#imageLiteral(resourceName: "unLockIcon"), for: .normal)
-            }
-            if variableLock3 == true {
-                variable3IsLocked = true
-                lockButtonText3.setImage(#imageLiteral(resourceName: "lockIcon"), for: .normal)
-            }
-        }
-        
-        if let operationIsDisplayedCurrently = UserDefaults.standard.object(forKey: "operationIsDisplayed") as? Bool {
-            if operationIsDisplayedCurrently == true {
-                operationIsDisplayed = true
-            }
-            if operationIsDisplayedCurrently == false {
-                operationIsDisplayed = false
-            }
+            //display the answer
+            updateDisplayLabels()
+            updateLeftNumber()
+            updateRightNumber()
             
         }
-
+    }
+    @IBAction func PressedNumberPad(_ sender: UIButton) {
         
-        
-        if let mainDisplayNumber = UserDefaults.standard.object(forKey: "mainDisplay") as? String {
-            currentDisplay = mainDisplayNumber
-            mainDisplay.text = mainDisplayNumber
+        if sender.title(for: .normal) == "Placeholder" {
+            return
         }
         
+        if calculator.answer != "" {
+            
+        }
+        
+        //Check to see if operator is selected
+        //If no operator is currently selected
+        if calculator.currentOperator == "" {
+            // Check to make sure user has not already entered a number from the variable button
+            if (sender.title(for: .normal)?.contains("."))! {
+                if calculator.leftNumber.contains(".") {
+                    return
+                }
+            }
+            
+            calculator.leftNumber.append(sender.title(for: .normal)!)
+            if sender.title(for: .normal) == "0" {
+                leftSideNumber.text = calculator.leftNumber
+            } else {
+                updateLeftNumber()
+            }
+            
+        
+        } else if calculator.currentOperator != ""  {
+            // Check to make sure user has not already entered a number from the variable button
+            if (sender.title(for: .normal)?.contains("."))! {
+                if calculator.leftNumber.contains(".") {
+                    return
+                }
+            }
+            
+            calculator.rightNumber.append(sender.title(for: .normal)!)
+            if sender.title(for: .normal) == "0" {
+                rightSideNumber.text = calculator.rightNumber
+            } else {
+                updateRightNumber()
+            }
+        }
+    }
+    
+    @IBAction func pressedLockButtonOne(_ sender: Any) {
+        placeholderLockedOne = switchTrueAndFalse(variable: placeholderLockedOne, button: lockButtonOne)
+    }
+    
+    @IBAction func pressedLockButtonTwo(_ sender: Any) {
+        placeholderLockedTwo = switchTrueAndFalse(variable: placeholderLockedTwo, button: lockButtonTwo)
+    }
+    
+    @IBAction func pressedLockButtonThree(_ sender: Any) {
+        placeholderLockedThree = switchTrueAndFalse(variable: placeholderLockedThree, button: lockButtonThree)
+    }
+    
+    @IBOutlet weak var placeholderLabelOne: UIButton!
+    @IBOutlet weak var lockButtonOne: UIButton!
+    
+    @IBOutlet weak var PlaceholderLabelTwo: UIButton!
+    @IBOutlet weak var lockButtonTwo: UIButton!
+    
+    @IBOutlet weak var placeholderLabelThree: UIButton!
+    @IBOutlet weak var lockButtonThree: UIButton!
+    
+    
+    
+    
+    //MARK: Updating UI Buttons and Labels
+    func updateVariableButtons() {
+        if placeholderLockedOne == false {
+            placeholderLabelOne.setTitle(numberFormatter.string(from: NSNumber(value: Double(calculator.answer)!)), for: .normal)
+        }
+        if placeholderLockedTwo == false {
+            PlaceholderLabelTwo.setTitle(numberFormatter.string(from: NSNumber(value: Double(calculator.answer)!)), for: .normal)
+        }
+        if placeholderLockedThree == false {
+            placeholderLabelThree.setTitle(numberFormatter.string(from: NSNumber(value: Double(calculator.answer)!)), for: .normal)
+        }
+    }
+    
+    func updateDisplayLabels() {
+        if calculator.answer != "" {
+            display.text = numberFormatter.string(from: NSNumber(value: Double(calculator.answer)!))
+            operatorDisplay.text = calculator.currentOperator
+        } else {
+            display.text = ""
+        }
+    }
+
+    func updateLeftNumber() {
+        if calculator.leftNumber != "" {
+            leftSideNumber.text = numberFormatter.string(from: NSNumber(value: Double(calculator.leftNumber)!))
+        } else {
+            leftSideNumber.text = ""
+        }
+    }
+    
+    func updateRightNumber() {
+        if calculator.rightNumber != "" {
+            rightSideNumber.text = numberFormatter.string(from: NSNumber(value: Double(calculator.rightNumber)!))
+        } else {
+            rightSideNumber.text = ""
+        }
+    }
+    
+    func updateOperator() {
+            operatorDisplay.text = calculator.currentOperator
+    }
+    
+    func switchTrueAndFalse(variable: Bool, button: UIButton) -> Bool {
+        if variable == false {
+            button.setImage(lockImage, for: .normal)
+            return true
+        } else {
+            button.setImage(unLockImage, for: .normal)
+            return false
+        }
     }
     
 }

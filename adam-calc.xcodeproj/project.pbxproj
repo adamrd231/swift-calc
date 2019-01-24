@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6619A58321EFEF6B0071116F /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6619A58221EFEF6B0071116F /* Calculator.swift */; };
 		665B482F1F81891300ED54BF /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B482E1F81891300ED54BF /* GoogleMobileAds.framework */; };
 		665B48311F81896000ED54BF /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48301F81896000ED54BF /* AdSupport.framework */; };
 		665B48331F81896700ED54BF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48321F81896700ED54BF /* AudioToolbox.framework */; };
@@ -19,6 +20,8 @@
 		665B48411F8189A200ED54BF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48401F8189A200ED54BF /* StoreKit.framework */; };
 		665B48431F8189B700ED54BF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665B48421F8189B700ED54BF /* SystemConfiguration.framework */; };
 		66C4C6971F89516C00A67C6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66FF1BE51F87549700A885F2 /* Assets.xcassets */; };
+		66CA10C221F6DA41002202F0 /* Formatter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CA10C121F6DA41002202F0 /* Formatter+Extensions.swift */; };
+		66CA10C421F6DAB6002202F0 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CA10C321F6DAB6002202F0 /* Int+Extensions.swift */; };
 		66EA30271F78564F00284C45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EA30261F78564F00284C45 /* AppDelegate.swift */; };
 		66EA30291F78564F00284C45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66EA30281F78564F00284C45 /* ViewController.swift */; };
 		66EA302C1F78565000284C45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66EA302A1F78565000284C45 /* Main.storyboard */; };
@@ -45,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6619A58221EFEF6B0071116F /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		665B482E1F81891300ED54BF /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = SDKs/GoogleMobileAds.framework; sourceTree = "<group>"; };
 		665B48301F81896000ED54BF /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		665B48321F81896700ED54BF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -56,6 +60,8 @@
 		665B483E1F81899B00ED54BF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		665B48401F8189A200ED54BF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		665B48421F8189B700ED54BF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		66CA10C121F6DA41002202F0 /* Formatter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Formatter+Extensions.swift"; sourceTree = "<group>"; };
+		66CA10C321F6DAB6002202F0 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		66EA30231F78564F00284C45 /* adam-calc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "adam-calc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		66EA30261F78564F00284C45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66EA30281F78564F00284C45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -150,7 +156,10 @@
 			isa = PBXGroup;
 			children = (
 				66EA30261F78564F00284C45 /* AppDelegate.swift */,
+				66CA10C121F6DA41002202F0 /* Formatter+Extensions.swift */,
+				66CA10C321F6DAB6002202F0 /* Int+Extensions.swift */,
 				66EA30281F78564F00284C45 /* ViewController.swift */,
+				6619A58221EFEF6B0071116F /* Calculator.swift */,
 				66EA302A1F78565000284C45 /* Main.storyboard */,
 				66FF1BE51F87549700A885F2 /* Assets.xcassets */,
 				66EA302F1F78565000284C45 /* LaunchScreen.storyboard */,
@@ -314,8 +323,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66CA10C221F6DA41002202F0 /* Formatter+Extensions.swift in Sources */,
 				66EA30291F78564F00284C45 /* ViewController.swift in Sources */,
 				66EA30271F78564F00284C45 /* AppDelegate.swift in Sources */,
+				6619A58321EFEF6B0071116F /* Calculator.swift in Sources */,
+				66CA10C421F6DAB6002202F0 /* Int+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

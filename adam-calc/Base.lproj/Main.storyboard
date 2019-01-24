@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O6r-Ng-Sdf">
-    <device id="ipad9_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O6r-Ng-Sdf">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="AvenirNextCondensed.ttc">
-            <string>AvenirNextCondensed-DemiBold</string>
-        </array>
-        <array key="Futura.ttc">
-            <string>Futura-CondensedExtraBold</string>
-            <string>Futura-CondensedMedium</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--Calculator-->
         <scene sceneID="tne-QT-ifu">
@@ -28,96 +18,119 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="CIz-r0-YiJ">
-                                <rect key="frame" x="0.0" y="25" width="768" height="900"/>
+                                <rect key="frame" x="0.0" y="25" width="414" height="738"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nIX-jV-VuN">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="127.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="500" layoutMarginsFollowReadableWidth="YES" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="nIX-jV-VuN">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="104.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7k-V0-JMM">
-                                                <rect key="frame" x="0.0" y="0.0" width="768" height="127.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="z73-4e-5Cf">
+                                                <rect key="frame" x="0.0" y="0.0" width="206.5" height="104.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LeftNumber" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kw8-cP-aA8">
+                                                        <rect key="frame" x="0.0" y="42" width="68" height="20.5"/>
+                                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Operator" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqI-a5-WmF">
+                                                        <rect key="frame" x="69" y="42" width="68.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RightNumber" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjm-MH-kqc">
+                                                        <rect key="frame" x="138.5" y="42" width="68" height="20.5"/>
+                                                        <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="17" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A7k-V0-JMM">
+                                                <rect key="frame" x="207.5" y="0.0" width="206.5" height="104.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="50"/>
+                                                <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="34"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="vFE-Gw-j1U">
-                                        <rect key="frame" x="0.0" y="128.5" width="768" height="128"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="vFE-Gw-j1U">
+                                        <rect key="frame" x="0.0" y="105.5" width="414" height="104.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wo6-dA-EuY">
-                                                <rect key="frame" x="0.0" y="0.0" width="254.5" height="128"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="137.5" height="104.5"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="19" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBA-Ap-RpK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="254.5" height="63.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="52"/>
                                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="26"/>
-                                                        <state key="normal" title="( x )">
+                                                        <state key="normal" title="Placeholder">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="pressedVariableButton3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KCk-s7-BPw"/>
+                                                            <action selector="PressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="n8N-bK-49c"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r80-qf-UIu">
-                                                        <rect key="frame" x="0.0" y="64.5" width="254.5" height="63.5"/>
+                                                        <rect key="frame" x="0.0" y="53" width="137.5" height="51.5"/>
                                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" image="unLockIcon"/>
                                                         <connections>
-                                                            <action selector="updateLockStatus3:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h6N-Xw-Dhl"/>
+                                                            <action selector="pressedLockButtonOne:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6yh-86-WfF"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="aWK-BN-tID">
-                                                <rect key="frame" x="256.5" y="0.0" width="255" height="128"/>
+                                                <rect key="frame" x="138.5" y="0.0" width="137" height="104.5"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="18" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3TO-YL-PWf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="255" height="63.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="137" height="52"/>
                                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="26"/>
-                                                        <state key="normal" title="( y )">
+                                                        <state key="normal" title="Placeholder">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="pressedVariableButton2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8BY-Q5-BA3"/>
+                                                            <action selector="PressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BGi-YD-1bM"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WmK-qx-9bs">
-                                                        <rect key="frame" x="0.0" y="64.5" width="255" height="63.5"/>
+                                                        <rect key="frame" x="0.0" y="53" width="137" height="51.5"/>
                                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="6"/>
                                                         <state key="normal" image="unLockIcon"/>
                                                         <connections>
-                                                            <action selector="updateLockStatus2:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XWq-Sq-rrP"/>
+                                                            <action selector="pressedLockButtonTwo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TP0-NJ-XjV"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="08C-DZ-loI">
-                                                <rect key="frame" x="513.5" y="0.0" width="254.5" height="128"/>
+                                                <rect key="frame" x="276.5" y="0.0" width="137.5" height="104.5"/>
                                                 <subviews>
                                                     <button opaque="NO" tag="17" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRv-Ru-DF0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="254.5" height="63.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="137.5" height="52"/>
                                                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="26"/>
-                                                        <state key="normal" title="( z )">
+                                                        <state key="normal" title="Placeholder">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="pressedVariableButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wkR-ek-Dot"/>
+                                                            <action selector="PressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dcn-PN-978"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rW-6A-eXa">
-                                                        <rect key="frame" x="0.0" y="64.5" width="254.5" height="63.5"/>
+                                                        <rect key="frame" x="0.0" y="53" width="137.5" height="51.5"/>
                                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <state key="normal" image="unLockIcon"/>
                                                         <connections>
-                                                            <action selector="updateVariableButtonStatus:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kRh-Lq-ahR"/>
+                                                            <action selector="pressedLockButtonThree:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y8P-XV-Ohk"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -125,235 +138,224 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fm9-SF-pCY">
-                                        <rect key="frame" x="0.0" y="257.5" width="768" height="127.5"/>
+                                        <rect key="frame" x="0.0" y="211" width="414" height="104.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6A6-8d-Tlx">
-                                                <rect key="frame" x="0.0" y="0.0" width="191.5" height="127.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="103" height="104.5"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="7">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Za-J9-peu"/>
+                                                    <action selector="PressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2IN-CI-hpv"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dvq-AW-d7T">
-                                                <rect key="frame" x="192.5" y="0.0" width="191" height="127.5"/>
+                                                <rect key="frame" x="104" y="0.0" width="102.5" height="104.5"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="8">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Djs-x5-bK7"/>
+                                                    <action selector="PressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aNW-dq-sLL"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8V-Tr-h32">
-                                                <rect key="frame" x="384.5" y="0.0" width="191.5" height="127.5"/>
+                                                <rect key="frame" x="207.5" y="0.0" width="103" height="104.5"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="9">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MHq-pJ-pUk"/>
+                                                    <action selector="PressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T30-F2-0om"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x54-Ky-rUv">
-                                                <rect key="frame" x="577" y="0.0" width="191" height="127.5"/>
+                                                <rect key="frame" x="311.5" y="0.0" width="102.5" height="104.5"/>
                                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="/">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cH5-fG-yg9"/>
+                                                    <action selector="PressedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9U4-sP-GFI"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="cXP-zx-h8E">
-                                        <rect key="frame" x="0.0" y="386" width="768" height="128"/>
+                                        <rect key="frame" x="0.0" y="316.5" width="414" height="105"/>
                                         <subviews>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lXq-wq-NkL">
-                                                <rect key="frame" x="0.0" y="0.0" width="191.5" height="128"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="103" height="105"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="4">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mXl-fP-OZY"/>
+                                                    <action selector="PressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qby-yB-LC0"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vJ2-kK-xQu">
-                                                <rect key="frame" x="192.5" y="0.0" width="191" height="128"/>
+                                                <rect key="frame" x="104" y="0.0" width="102.5" height="105"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="5">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0w5-ku-zqI"/>
+                                                    <action selector="PressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Y2-OM-Xli"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rc-6s-B8p">
-                                                <rect key="frame" x="384.5" y="0.0" width="191.5" height="128"/>
+                                                <rect key="frame" x="207.5" y="0.0" width="103" height="105"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="6">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pfw-ts-rG4"/>
+                                                    <action selector="PressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FBL-Pl-qSa"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="14" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8OL-G3-3Pi">
-                                                <rect key="frame" x="577" y="0.0" width="191" height="128"/>
+                                                <rect key="frame" x="311.5" y="0.0" width="102.5" height="105"/>
                                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="-">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UQN-x0-b7i"/>
+                                                    <action selector="PressedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rO2-3p-1ke"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="mhQ-ho-Bzk">
-                                        <rect key="frame" x="0.0" y="515" width="768" height="127.5"/>
+                                        <rect key="frame" x="0.0" y="422.5" width="414" height="104.5"/>
                                         <subviews>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJX-1a-Bld">
-                                                <rect key="frame" x="0.0" y="0.0" width="191.5" height="127.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="103" height="104.5"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="1">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Qco-2C-cgQ"/>
+                                                    <action selector="PressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HsA-he-89o"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="npf-KP-kQK">
-                                                <rect key="frame" x="192.5" y="0.0" width="191" height="127.5"/>
+                                                <rect key="frame" x="104" y="0.0" width="102.5" height="104.5"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="2">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BC0-j5-zwO"/>
+                                                    <action selector="PressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUo-B4-VJg"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0el-b9-RqP">
-                                                <rect key="frame" x="384.5" y="0.0" width="191.5" height="127.5"/>
+                                                <rect key="frame" x="207.5" y="0.0" width="103" height="104.5"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="3">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oJh-PG-e53"/>
+                                                    <action selector="PressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MjO-10-UI1"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="13" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="anT-pV-h5v">
-                                                <rect key="frame" x="577" y="0.0" width="191" height="127.5"/>
+                                                <rect key="frame" x="311.5" y="0.0" width="102.5" height="104.5"/>
                                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="x">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H0q-WI-Y6V"/>
+                                                    <action selector="PressedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y4b-Mk-Qxw"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="vlF-nC-l22">
-                                        <rect key="frame" x="0.0" y="643.5" width="768" height="128"/>
+                                        <rect key="frame" x="0.0" y="528" width="414" height="104.5"/>
                                         <subviews>
-                                            <button opaque="NO" tag="21" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1C-g0-0bJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="191.5" height="128"/>
-                                                <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
-                                                <state key="normal" title="00">
-                                                    <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4HR-SO-P74">
+                                                <rect key="frame" x="0.0" y="0.0" width="103" height="104.5"/>
+                                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <state key="normal" title=" " backgroundImage="backspace">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MrH-wK-GpU"/>
+                                                    <action selector="pressedBackspace:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Ed-TN-Ch2"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pCq-wa-weh">
-                                                <rect key="frame" x="192.5" y="0.0" width="191" height="128"/>
+                                                <rect key="frame" x="104" y="0.0" width="102.5" height="104.5"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="0">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8ob-R5-2Ht"/>
+                                                    <action selector="PressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KgO-6g-11P"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="20" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gln-Qu-ef7">
-                                                <rect key="frame" x="384.5" y="0.0" width="191.5" height="128"/>
+                                                <rect key="frame" x="207.5" y="0.0" width="103" height="104.5"/>
                                                 <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="40"/>
                                                 <state key="normal" title=".">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedNumberPad:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MwW-nh-0Vg"/>
+                                                    <action selector="pressedPeriodButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hUl-Ju-WeZ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="15" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znr-ue-b0Z">
-                                                <rect key="frame" x="577" y="0.0" width="191" height="128"/>
+                                                <rect key="frame" x="311.5" y="0.0" width="102.5" height="104.5"/>
                                                 <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="40"/>
                                                 <state key="normal" title="+">
                                                     <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b9a-Fy-ugG"/>
+                                                    <action selector="PressedOperatorButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5TK-ds-rJd"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="LPL-mH-ViB">
-                                        <rect key="frame" x="0.0" y="772.5" width="768" height="127.5"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="LPL-mH-ViB">
+                                        <rect key="frame" x="0.0" y="633.5" width="414" height="104.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4HR-SO-P74">
-                                                <rect key="frame" x="0.0" y="0.0" width="254.5" height="127.5"/>
-                                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <state key="normal" title=" " backgroundImage="backspace">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="pressedBackspace:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mgH-41-wkf"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GX3-QE-TDn">
-                                                <rect key="frame" x="256.5" y="0.0" width="255" height="127.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="206.5" height="104.5"/>
                                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="36"/>
                                                 <state key="normal" title="C">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="clearButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lel-5e-TOG"/>
+                                                    <action selector="pressedClearButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6VV-xL-3wi"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="16" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbo-aW-zto">
-                                                <rect key="frame" x="513.5" y="0.0" width="254.5" height="127.5"/>
+                                                <rect key="frame" x="207.5" y="0.0" width="206.5" height="104.5"/>
                                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="84"/>
                                                 <state key="normal" title="=">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="pressedEqualsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I9d-jG-Eyb"/>
+                                                    <action selector="pressedEqualsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Liu-pe-Xyq"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -361,10 +363,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="vMk-eh-gfu">
-                                <rect key="frame" x="0.0" y="925" width="768" height="50"/>
+                                <rect key="frame" x="0.0" y="763" width="414" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YJV-zw-cUw" customClass="GADBannerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="320" id="0Kd-OE-5h4"/>
                                             <constraint firstAttribute="height" constant="50" id="3uH-9H-Ct8"/>
@@ -392,14 +394,16 @@
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="GoogleBannerView" destination="YJV-zw-cUw" id="Ydv-tb-9Ht"/>
-                        <outlet property="lockButtonText1" destination="9rW-6A-eXa" id="Isp-Tj-5b2"/>
-                        <outlet property="lockButtonText2" destination="WmK-qx-9bs" id="9b0-WU-aPj"/>
-                        <outlet property="lockButtonText3" destination="r80-qf-UIu" id="o2L-j8-uLo"/>
-                        <outlet property="mainDisplay" destination="A7k-V0-JMM" id="OCU-9j-EG8"/>
-                        <outlet property="variableButton1" destination="JRv-Ru-DF0" id="ocE-HX-Dz3"/>
-                        <outlet property="variableButton2" destination="3TO-YL-PWf" id="b1o-rM-4ON"/>
-                        <outlet property="variableButton3" destination="UBA-Ap-RpK" id="Vjn-xR-wdW"/>
+                        <outlet property="PlaceholderLabelTwo" destination="3TO-YL-PWf" id="eil-Aa-k5s"/>
+                        <outlet property="display" destination="A7k-V0-JMM" id="bCK-M4-e8J"/>
+                        <outlet property="leftSideNumber" destination="Kw8-cP-aA8" id="pLU-u1-sO5"/>
+                        <outlet property="lockButtonOne" destination="r80-qf-UIu" id="1RK-Gk-4Nr"/>
+                        <outlet property="lockButtonThree" destination="9rW-6A-eXa" id="Zxh-19-bdj"/>
+                        <outlet property="lockButtonTwo" destination="WmK-qx-9bs" id="vO3-gI-GLg"/>
+                        <outlet property="operatorDisplay" destination="VqI-a5-WmF" id="snK-qo-fBa"/>
+                        <outlet property="placeholderLabelOne" destination="UBA-Ap-RpK" id="hqT-ar-IzO"/>
+                        <outlet property="placeholderLabelThree" destination="JRv-Ru-DF0" id="nQq-kv-C8P"/>
+                        <outlet property="rightSideNumber" destination="Tjm-MH-kqc" id="lsQ-EJ-t3c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -434,11 +438,11 @@
                         <viewControllerLayoutGuide type="bottom" id="jSY-wY-ndp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QLE-9d-hFt">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="9ff-KG-55p">
-                                <rect key="frame" x="30" y="70" width="708" height="247"/>
+                                <rect key="frame" x="30" y="94" width="354" height="247"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to use Adam's Calc" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35V-rw-9cC">
                                         <rect key="frame" x="0.0" y="0.0" width="179.5" height="22"/>
@@ -522,9 +526,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backspace" width="150" height="150"/>
-        <image name="tabMenuCalculator" width="30" height="30"/>
-        <image name="tabMenuInstructions" width="30" height="30"/>
-        <image name="unLockIcon" width="50" height="50"/>
+        <image name="backspace" width="300" height="300"/>
+        <image name="tabMenuCalculator" width="60" height="60"/>
+        <image name="tabMenuInstructions" width="60" height="60"/>
+        <image name="unLockIcon" width="100" height="100"/>
     </resources>
 </document>
