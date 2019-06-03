@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Calculator {
+class Calculator: NSObject, Codable {
 
     var leftNumber:String = ""
     var rightNumber:String = ""
@@ -16,9 +16,12 @@ class Calculator {
     var placeholderOne = ""
     var placeholderTwo = ""
     var placeholderThree = ""
+    var lockButtonOne = false
+    var lockButtonTwo = false
+    var lockButtonThree = false
     var currentOperator:String = ""
     
-    let numberFormatter = NumberFormatter()
+
     
     func doingMath(calc: Calculator, sender: String) {
         
