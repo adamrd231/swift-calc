@@ -57,13 +57,17 @@ struct ContentView: View {
                 answer = doubleLeftNumber! / doubleRightNumber!
             }
             
-            leftNumber = String(answer)
+            leftNumber = ""
             operand = ""
             rightNumber = ""
             
             
+            if lockOne == "lock.fill" && lockTwo == "lock.fill" && lockThree == "lock.fill" {
+                leftNumber = String(answer)
+            } else {
+                fillAnswerArrays(numberAsString: String(answer))
+            }
             
-            fillAnswerArrays(numberAsString: leftNumber)
             
         } else {
             return
@@ -141,9 +145,18 @@ struct ContentView: View {
         rightNumber = ""
         operand = ""
         
-        savedAnswerArray[0] = ""
-        savedAnswerArray[1] = ""
-        savedAnswerArray[2] = ""
+        if lockOne == "lock" {
+            savedAnswerArray[0] = ""
+        }
+        if lockTwo == "lock" {
+            savedAnswerArray[1] = ""
+        }
+        if lockThree == "lock" {
+            savedAnswerArray[2] = ""
+        }
+        
+        
+        
         
     }
     
@@ -179,8 +192,16 @@ struct ContentView: View {
         }
     }
     
-    func fillingSavedAnswers() {
-        
+    func usingSavedAnswers(answer: String) {
+        if leftNumber == "" {
+            leftNumber = answer
+        } else if leftNumber != "" && operand == "" {
+            leftNumber = answer
+        } else if operand != "" && leftNumber != "" && rightNumber == "" {
+            rightNumber = answer
+        } else {
+            rightNumber = answer
+        }
     }
     
 
@@ -196,17 +217,17 @@ struct ContentView: View {
 
             HStack {
                 Button( action: {
-                    
+                    usingSavedAnswers(answer: savedAnswerArray[0])
                 }) {
                     Text("\(savedAnswerArray[0])")
                 }
                 Button( action: {
-                    
+                    usingSavedAnswers(answer: savedAnswerArray[1])
                 }) {
                     Text("\(savedAnswerArray[1])")
                 }
                 Button( action: {
-                    
+                    usingSavedAnswers(answer: savedAnswerArray[2])
                 }) {
                     Text("\(savedAnswerArray[2])")
                 }
