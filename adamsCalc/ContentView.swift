@@ -12,13 +12,17 @@ import SwiftUI
 struct ContentView: View {
     
     // Variables for Calculator
-    @State var currentAnswer = ""
     @State var leftNumber = ""
     @State var rightNumber = ""
     @State var operand = ""
     
-    var isTyping = true
+    @State var savedAnswerArray = ["", "", ""]
     
+    @State var lockOne = "lock"
+    @State var lockTwo = "lock"
+    @State var lockThree = "lock"
+    
+    // MARK: Helper Functions
     func handleNumberInputs(title: String) {
         if operand == "" {
             if (leftNumber == "") {
@@ -36,7 +40,85 @@ struct ContentView: View {
         
     }
     
+    func equalsOperand() {
+        if leftNumber != "" && rightNumber != "" && operand != "" {
+            // Use number and operator inputs to do math
+            let doubleLeftNumber = Double(leftNumber)
+            let doubleRightNumber = Double(rightNumber)
+            var answer = 0.0
+            
+            if operand == "x" {
+                answer = doubleLeftNumber! * doubleRightNumber!
+            } else if operand == "-" {
+                answer = doubleLeftNumber! - doubleRightNumber!
+            } else if operand == "+" {
+                answer = doubleLeftNumber! + doubleRightNumber!
+            } else {
+                answer = doubleLeftNumber! / doubleRightNumber!
+            }
+            
+            leftNumber = String(answer)
+            operand = ""
+            rightNumber = ""
+            
+            
+            
+            fillAnswerArrays(numberAsString: leftNumber)
+            
+        } else {
+            return
+        }
+    }
+    
+    func continuedOperatation(newOperator: String) {
+        
+        if leftNumber.last == "." {
+            leftNumber.removeLast()
+        }
+        if rightNumber.last == "." {
+            rightNumber.removeLast()
+        }
+        
+        if leftNumber != "" && rightNumber != "" && operand != "" {
+            // Use number and operator inputs to do math
+            let doubleLeftNumber = Double(leftNumber)
+            let doubleRightNumber = Double(rightNumber)
+            var answer = 0.0
+            
+            if operand == "x" {
+                answer = doubleLeftNumber! * doubleRightNumber!
+            } else if operand == "-" {
+                answer = doubleLeftNumber! - doubleRightNumber!
+            } else if operand == "+" {
+                answer = doubleLeftNumber! + doubleRightNumber!
+            } else {
+                answer = doubleLeftNumber! / doubleRightNumber!
+            }
+            
+            leftNumber = String(answer)
+            operand = newOperator
+            rightNumber = ""
+            
+            
+            
+            fillAnswerArrays(numberAsString: leftNumber)
+            
+        } else {
+            return
+        }
+    }
+    
     func handleOperandInputs(operandInput: String) {
+        
+        if leftNumber.last == "." {
+            leftNumber.removeLast()
+        }
+        if rightNumber.last == "." {
+            rightNumber.removeLast()
+        }
+
+        
+        
         // Check place in calculator sequence
         // if leftNumber has not been entered, do nothing
         if leftNumber == "" {
@@ -49,68 +131,132 @@ struct ContentView: View {
             operand = operandInput
         // if leftNumber is filled, operator and rightnumber being filled, do nothing
         } else {
-            return
+            continuedOperatation(newOperator: operandInput)
         }
         
     }
     
+    func clearButton() {
+        leftNumber = ""
+        rightNumber = ""
+        operand = ""
+        
+        savedAnswerArray[0] = ""
+        savedAnswerArray[1] = ""
+        savedAnswerArray[2] = ""
+        
+    }
+    
+    func backspaceClear() {
+        if leftNumber != "" && operand != "" && rightNumber != "" {
+            rightNumber.removeLast()
+        } else if leftNumber != "" && operand != "" {
+            operand = ""
+        } else if leftNumber != "" {
+            leftNumber.removeLast()
+        } else {
+            return
+        }
+    }
+    
 
     
+    func fillAnswerArrays(numberAsString: String) {
+        
+        if savedAnswerArray[0] == "" && lockOne == "lock" {
+            savedAnswerArray[0] = numberAsString
+        } else if savedAnswerArray[1] == "" && lockTwo == "lock" {
+            savedAnswerArray[1] = numberAsString
+        } else if savedAnswerArray[2] == "" && lockThree == "lock" {
+            savedAnswerArray[2] = numberAsString
+           
+        } else if savedAnswerArray[2] != "" && lockThree == "lock" {
+            savedAnswerArray[2] = numberAsString
+        } else if savedAnswerArray[1] != "" && lockTwo == "lock"  {
+            savedAnswerArray[1] = numberAsString
+        } else if savedAnswerArray[0] != "" && lockOne == "lock" {
+            savedAnswerArray[0] = numberAsString
+        }
+    }
+    
+    func fillingSavedAnswers() {
+        
+    }
+    
+
+    // MARK: App UI
     var body: some View {
         VStack(spacing: 30){
             HStack {
                 Text("\(leftNumber)")
                 Text("\(operand)")
                 Text("\(rightNumber)")
-                Text("\(currentAnswer)")
             }
             
 
             HStack {
-                Button("Place", action: {
+                Button( action: {
                     
-                })
-                Button("Place", action: {
+                }) {
+                    Text("\(savedAnswerArray[0])")
+                }
+                Button( action: {
                     
-                })
-                Button("Place", action: {
+                }) {
+                    Text("\(savedAnswerArray[1])")
+                }
+                Button( action: {
                     
-                })
+                }) {
+                    Text("\(savedAnswerArray[2])")
+                }
             }
             HStack {
-                Button("Lock", action: {
-                    
-                })
-                Button("Lock", action: {
-                    
-                })
-                Button("Lock", action: {
-                    
-                })
+                Button(action: {
+                    if lockOne == "lock" {
+                        lockOne = "lock.fill"
+                    } else {
+                        lockOne = "lock"
+                    }
+                }) { Image(systemName: "\(lockOne)") }
+                Button(action: {
+                    if lockTwo == "lock" {
+                        lockTwo = "lock.fill"
+                    } else {
+                        lockTwo = "lock"
+                    }
+                }) { Image(systemName: "\(lockTwo)") }
+                Button(action: {
+                    if lockThree == "lock" {
+                        lockThree = "lock.fill"
+                    } else {
+                        lockThree = "lock"
+                    }
+                }) { Image(systemName: "\(lockThree)") }
             }
             HStack {
                 Button("1", action: {
                     handleNumberInputs(title: "1")
                 })
                 Button("2", action: {
-                    
+                    handleNumberInputs(title: "2")
                 })
                 Button("3", action: {
-                    
+                    handleNumberInputs(title: "3")
                 })
                 Button("/", action: {
-                    
+                    handleOperandInputs(operandInput: "/")
                 })
             }
             HStack {
                 Button("4", action: {
-                    
+                    handleNumberInputs(title: "4")
                 })
                 Button("5", action: {
-                    
+                    handleNumberInputs(title: "5")
                 })
                 Button("6", action: {
-                    
+                    handleNumberInputs(title: "6")
                 })
                 Button("-", action: {
                     handleOperandInputs(operandInput: "-")
@@ -118,27 +264,27 @@ struct ContentView: View {
             }
             HStack {
                 Button("7", action: {
-                    
+                    handleNumberInputs(title: "7")
                 })
                 Button("8", action: {
-                    
+                    handleNumberInputs(title: "8")
                 })
                 Button("9", action: {
-                    
+                    handleNumberInputs(title: "9")
                 })
                 Button("x", action: {
-                    
+                    handleOperandInputs(operandInput: "x")
                 })
             }
             HStack {
                 Button("<", action: {
-                    
+                    backspaceClear()
                 })
                 Button("0", action: {
-                    
+                    handleNumberInputs(title: "0")
                 })
                 Button(".", action: {
-                    
+                    handleNumberInputs(title: ".")
                 })
                 Button("+", action: {
                     handleOperandInputs(operandInput: "+")
@@ -146,10 +292,10 @@ struct ContentView: View {
             }
             HStack {
                 Button("Clear", action: {
-                    
+                    clearButton()
                 })
                 Button("=", action: {
-                    
+                    equalsOperand()
                 })
             }
             
