@@ -11,6 +11,7 @@
 		667FEB85267BC561009FBA5C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667FEB84267BC561009FBA5C /* ContentView.swift */; };
 		667FEB87267BC562009FBA5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 667FEB86267BC562009FBA5C /* Assets.xcassets */; };
 		667FEB8A267BC562009FBA5C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 667FEB89267BC562009FBA5C /* Preview Assets.xcassets */; };
+		667FEBAD267E7191009FBA5C /* CalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667FEBAC267E7191009FBA5C /* CalculatorModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		667FEB86267BC562009FBA5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		667FEB89267BC562009FBA5C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		667FEB8B267BC562009FBA5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		667FEBAC267E7191009FBA5C /* CalculatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				667FEB82267BC561009FBA5C /* adamsCalcApp.swift */,
 				667FEB84267BC561009FBA5C /* ContentView.swift */,
+				667FEBAC267E7191009FBA5C /* CalculatorModel.swift */,
 				667FEB86267BC562009FBA5C /* Assets.xcassets */,
 				667FEB8B267BC562009FBA5C /* Info.plist */,
 				667FEB88267BC562009FBA5C /* Preview Content */,
@@ -140,6 +143,7 @@
 			files = (
 				667FEB85267BC561009FBA5C /* ContentView.swift in Sources */,
 				667FEB83267BC561009FBA5C /* adamsCalcApp.swift in Sources */,
+				667FEBAD267E7191009FBA5C /* CalculatorModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
