@@ -12,18 +12,56 @@ import SwiftUI
 struct ContentView: View {
     
     // Variables for Calculator
-    @State var leftNumber = ""
-    @State var rightNumber = ""
-    @State var operand = ""
+    @State var leftNumber = "1"
+    @State var rightNumber = "1"
+    @State var operand = "1"
     
-    @State var savedAnswerArray = ["", "", ""]
+    @State var savedAnswerArray = ["1", "2", "3"]
     
-    @State var lockOne = "lock"
-    @State var lockTwo = "lock"
-    @State var lockThree = "lock"
+    @State var lockOne = false
+    @State var lockTwo = false
+    @State var lockThree = false
+    @State var locksStatus = [false, true, false]
     
+    
+    // UI Settings that users might be able to adjust
     @State var decimalPlaces = 3
+    
+    // UI Setting for layout
     var geometryDivisor = 8
+    
+    enum NumberPadButtons:String {
+        case one = "1"
+        case two = "2"
+        case three = "3"
+        case four = "4"
+        case five = "5"
+        case six = "6"
+        case seven = "7"
+        case eight = "8"
+        case nine = "9"
+        case zero = "0"
+        case add = "+"
+        case period = "."
+        case subtract = "-"
+        case multiply = "*"
+        case divide = "/"
+        case equals = "="
+        case clear = "AC"
+        case negativePostive = "+/-"
+        case percentage = "%"
+        case backSpace = "<"
+    }
+    
+    let numberPadButtons: [[NumberPadButtons]] = [
+        [.clear, .backSpace, .negativePostive, .divide],
+        [.seven, .eight, .nine, .multiply],
+        [.four, .five, .six, .subtract],
+        [.one, .two, .three, .add],
+        [.zero, .period, .equals]
+    ]
+    
+    
     
     // MARK: Helper Functions
     func handleNumberInputs(title: String) {
@@ -78,7 +116,7 @@ struct ContentView: View {
             rightNumber = ""
             
             
-            if lockOne == "lock.fill" && lockTwo == "lock.fill" && lockThree == "lock.fill" {
+            if lockOne == true && lockTwo == true && lockThree == true {
                 let floatAnswer = Float(answer)
                 leftNumber = String(format: "%.\(decimalPlaces)f", floatAnswer!)
             } else {
@@ -163,13 +201,13 @@ struct ContentView: View {
         rightNumber = ""
         operand = ""
         
-        if lockOne == "lock" {
+        if lockOne == false {
             savedAnswerArray[0] = ""
         }
-        if lockTwo == "lock" {
+        if lockTwo == false {
             savedAnswerArray[1] = ""
         }
-        if lockThree == "lock" {
+        if lockThree == false {
             savedAnswerArray[2] = ""
         }
         
@@ -194,18 +232,18 @@ struct ContentView: View {
     
     func fillAnswerArrays(numberAsString: String) {
         
-        if savedAnswerArray[0] == "" && lockOne == "lock" {
+        if savedAnswerArray[0] == "" && lockOne == false {
             savedAnswerArray[0] = numberAsString
-        } else if savedAnswerArray[1] == "" && lockTwo == "lock" {
+        } else if savedAnswerArray[1] == "" && lockTwo == false {
             savedAnswerArray[1] = numberAsString
-        } else if savedAnswerArray[2] == "" && lockThree == "lock" {
+        } else if savedAnswerArray[2] == "" && lockThree == false {
             savedAnswerArray[2] = numberAsString
            
-        } else if savedAnswerArray[2] != "" && lockThree == "lock" {
+        } else if savedAnswerArray[2] != "" && lockThree == false {
             savedAnswerArray[2] = numberAsString
-        } else if savedAnswerArray[1] != "" && lockTwo == "lock"  {
+        } else if savedAnswerArray[1] != "" && lockTwo == false  {
             savedAnswerArray[1] = numberAsString
-        } else if savedAnswerArray[0] != "" && lockOne == "lock" {
+        } else if savedAnswerArray[0] != "" && lockOne == false {
             savedAnswerArray[0] = numberAsString
         }
     }
@@ -222,9 +260,26 @@ struct ContentView: View {
         }
     }
     
+    func toggleButtonStatus(boolVariable: Bool) -> Bool {
+        var newBool = boolVariable
+        newBool.toggle()
+        return newBool
+    }
+    
+    func displayLockImage(boolVariable:Bool) -> Image {
+        if boolVariable == false {
+            return Image(systemName: "lock")
+        } else {
+            return Image(systemName: "lock.fill")
+        }
+    }
+    
 
     // MARK: App UI
     var body: some View {
+        
+        
+        
         ZStack() {
             // Setup backgound Color
             Color(.systemGray6).edgesIgnoringSafeArea([.top,.bottom])
@@ -233,176 +288,53 @@ struct ContentView: View {
                 VStack(alignment: .center){
                     
                     HStack {
-                        Text("\(leftNumber)").frame(width: geometry.size.width / 3, height: geometry.size.height / CGFloat(geometryDivisor)).background(Color(.systemGray5))
-                        Text("\(operand)").frame(width: geometry.size.width / 3, height: geometry.size.height / CGFloat(geometryDivisor)).background(Color(.systemGray4))
-                        Text("\(rightNumber)").frame(width: geometry.size.width / 3, height: geometry.size.height / CGFloat(geometryDivisor)).background(Color(.systemGray5))
-                    }.frame(height: geometry.size.height / CGFloat(geometryDivisor)).padding(.bottom)
+                        Text("\(leftNumber)")
+                        Text("\(operand)")
+                        Text("\(rightNumber)")
+                    }
                     
 
                     HStack {
-                        Button( action: {
-                            usingSavedAnswers(answer: savedAnswerArray[0])
-                        }) {
-                            
-                            Text("\(savedAnswerArray[0])").frame(width: geometry.size.width / 3, height: geometry.size.height / CGFloat(geometryDivisor)).background(Color(.systemGray4))
-                        }
-                        Button( action: {
-                            usingSavedAnswers(answer: savedAnswerArray[1])
-                        }) {
-                            
-                            Text("\(savedAnswerArray[1])").frame(width: geometry.size.width / 3, height: geometry.size.height / CGFloat(geometryDivisor)).background(Color(.systemGray5))
-                        }
-                        Button( action: {
-                            usingSavedAnswers(answer: savedAnswerArray[2])
-                        }) {
-                            
-                            Text("\(savedAnswerArray[2])").frame(width: geometry.size.width / 3, height: geometry.size.height / CGFloat(geometryDivisor)).background(Color(.systemGray4))
-                        }
-                    }.frame(height: geometry.size.height / CGFloat(geometryDivisor))
-                    
-                    
-                    HStack {
-                        Button(action: {
-                            if lockOne == "lock" {
-                                lockOne = "lock.fill"
-                            } else {
-                                lockOne = "lock"
+                        ForEach(0...savedAnswerArray.count - 1, id: \.self) { savedAnswer in
+                            Button( action: {
+                                usingSavedAnswers(answer: savedAnswerArray[savedAnswer])
+                                print(savedAnswerArray[savedAnswer])
+                            }) {
+                                
+                                Text("\(savedAnswerArray[savedAnswer])")
                             }
-                        }) { Image(systemName: "\(lockOne)").frame(width: geometry.size.width / 3).font(.largeTitle) }
+                        }
+                    }
+                    
+                    
+                    HStack {
                         Button(action: {
-                            if lockTwo == "lock" {
-                                lockTwo = "lock.fill"
-                            } else {
-                                lockTwo = "lock"
+                            lockOne = toggleButtonStatus(boolVariable: lockOne)
+                        }) { displayLockImage(boolVariable: lockOne) }
+                        Button(action: {
+                            lockTwo = toggleButtonStatus(boolVariable: lockTwo)
+                        }) { displayLockImage(boolVariable: lockTwo) }
+                        Button(action: {
+                            lockThree = toggleButtonStatus(boolVariable: lockThree)
+                        }) { displayLockImage(boolVariable: lockThree) }
+                    }
+                    
+                    
+                    VStack {
+                        ForEach(numberPadButtons, id: \.self) { row in
+                            HStack {
+                                ForEach(row, id: \.self) { item in
+                                    Button(action:{
+                                        
+                                    }) {
+                                        Text(item.rawValue)
+                                    }.buttonStyle(NumberPadButtonStyle())
+                                }
                             }
-                        }) { Image(systemName: "\(lockTwo)").frame(width: geometry.size.width / 3).font(.largeTitle) }
-                        Button(action: {
-                            if lockThree == "lock" {
-                                lockThree = "lock.fill"
-                            } else {
-                                lockThree = "lock"
-                            }
-                        }) { Image(systemName: "\(lockThree)").frame(width: geometry.size.width / 3).font(.largeTitle) }
-                        
-                    }.frame(height: geometry.size.height / CGFloat(geometryDivisor))
-                    
-                    
-                    HStack {
-                        Button(action: {
-                            handleNumberInputs(title: "1")
-                        }) {
-                            Text("1").frame(width: geometry.size.width / 5).font(.largeTitle)
-                                
                         }
-                        Button(action: {
-                            handleNumberInputs(title: "2")
-                        }) {
-                            Text("2").frame(width: geometry.size.width / 5).font(.largeTitle)
-                                
-                        }
-                        Button(action: {
-                            handleNumberInputs(title: "3")
-                        }) {
-                            Text("3").frame(width: geometry.size.width / 5).font(.largeTitle)
-                                
-                        }
-                        Button(action: {
-                            handleOperandInputs(operandInput: "/")
-                        }) {
-                            Text("/").frame(width: geometry.size.width / 5).font(.largeTitle)
-                                
-                        }
-                    }.frame(height: geometry.size.height / CGFloat(geometryDivisor)).padding(.leading).padding(.trailing)
-                    
-                    
-                    HStack {
-                        Button(action: {
-                            handleNumberInputs(title: "4")
-                        }) {
-                            Text("4").frame(width: geometry.size.width / 5).font(.largeTitle)
-                        }
-                        Button(action: {
-                            handleNumberInputs(title: "5")
-                        }) {
-                            Text("5").frame(width: geometry.size.width / 5).font(.largeTitle)
-                        }
-                        Button(action: {
-                            handleNumberInputs(title: "6")
-                        }) {
-                            Text("6").frame(width: geometry.size.width / 5).font(.largeTitle)
-                        }
-                        Button(action: {
-                            handleOperandInputs(operandInput: "-")
-                        }) {
-                            Text("-").frame(width: geometry.size.width / 5).font(.largeTitle)
-                        }
-                    }.frame(height: geometry.size.height / CGFloat(geometryDivisor))
-                    
-                    
-                    HStack {
-                        Button(action: {
-                            handleNumberInputs(title: "7")
-                        }) {
-                            Text("7").frame(width: geometry.size.width / 5).font(.largeTitle)
-                        }
-                        Button(action: {
-                            handleNumberInputs(title: "8")
-                        }) {
-                            Text("8").frame(width: geometry.size.width / 5).font(.largeTitle)
-                        }
-                        Button(action: {
-                            handleNumberInputs(title: "9")
-                        }) {
-                            Text("9").frame(width: geometry.size.width / 5).font(.largeTitle)
-                        }
-                        Button(action: {
-                            handleOperandInputs(operandInput: "x")
-                        }) {
-                            Text("x").frame(width: geometry.size.width / 5).font(.largeTitle)
-                        }
-                    }.frame(height: geometry.size.height / CGFloat(geometryDivisor))
-                    
-                    
-                    HStack {
-                        Button(action: {
-                            backspaceClear()
-                        }) {
-                            Text("<").frame(width: geometry.size.width / 5).font(.largeTitle)
-                        }
-                        Button(action: {
-                            handleNumberInputs(title: "0")
-                        }) {
-                            Text("0").frame(width: geometry.size.width / 5).font(.largeTitle)
-                        }
-                        Button(action: {
-                            handleNumberInputs(title: ".")
-                        }) {
-                            Text(".").frame(width: geometry.size.width / 5).font(.largeTitle)
-                        }
-                        Button(action: {
-                            handleOperandInputs(operandInput: "+")
-                        }) {
-                            Text("+").frame(width: geometry.size.width / 5).font(.largeTitle)
-                        }
-                    }.frame(height: geometry.size.height / CGFloat(geometryDivisor))
-                    
-                    
-                    HStack {
-                        Button(action: {
-                            clearButton()
-                        }) {
-                            Text("Clear").frame(width: geometry.size.width / 2).font(.largeTitle)
-                        }
-                        Button(action: {
-                            equalsOperand()
-                        }) {
-                            Text("=").frame(width: geometry.size.width / 2).font(.largeTitle)
-                        }
-                    }.frame(height: geometry.size.height / CGFloat(geometryDivisor))
-                    
-                    
-                }.frame(width: geometry.size.width, height: geometry.size.height)
-            }.padding()
+                    }
+                }
+            }
         }
     }
 }
@@ -415,6 +347,9 @@ struct ContentView_Previews: PreviewProvider {
         }
     }
 }
+
+
+
 
 
 extension Float {
