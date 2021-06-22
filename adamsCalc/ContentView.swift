@@ -31,11 +31,11 @@ struct ContentView: View {
     
     // MARK: App UI
     var body: some View {
-        
+        GeometryReader { geometry in
         ZStack {
             // Setup backgound Color
             Color(.systemGray6).edgesIgnoringSafeArea([.top,.bottom])
-            GeometryReader { geometry in
+            
             
                 VStack(alignment: .center){
                     
@@ -70,7 +70,7 @@ struct ContentView: View {
                     }
                     
                     
-                    VStack {
+                    VStack(alignment: .center) {
                         ForEach(calculator.numberPadButtons, id: \.self) { row in
                             HStack {
                                 ForEach(row, id: \.self) { item in
