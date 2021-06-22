@@ -12,9 +12,9 @@ import SwiftUI
 struct ContentView: View {
     
     // Variables for Calculator
-    @State var leftNumber = "1"
-    @State var rightNumber = "1"
-    @State var operand = "1"
+    @State var leftNumber = ""
+    @State var rightNumber = ""
+    @State var operand = ""
     
     @State var savedAnswerArray = ["1", "2", "3"]
     
@@ -278,8 +278,6 @@ struct ContentView: View {
     // MARK: App UI
     var body: some View {
         
-        
-        
         ZStack() {
             // Setup backgound Color
             Color(.systemGray6).edgesIgnoringSafeArea([.top,.bottom])
@@ -325,7 +323,28 @@ struct ContentView: View {
                             HStack {
                                 ForEach(row, id: \.self) { item in
                                     Button(action:{
-                                        
+                                        switch item.rawValue {
+                                            case "1": handleNumberInputs(title: "1")
+                                            case "2": handleNumberInputs(title: "2")
+                                            case "3": handleNumberInputs(title: "3")
+                                            case "4": handleNumberInputs(title: "4")
+                                            case "5": handleNumberInputs(title: "5")
+                                            case "6": handleNumberInputs(title: "6")
+                                            case "7": handleNumberInputs(title: "7")
+                                            case "8": handleNumberInputs(title: "8")
+                                            case "9": handleNumberInputs(title: "9")
+                                            case "0": handleNumberInputs(title: "0")
+                                            case "/": handleOperandInputs(operandInput: "/")
+                                            case "*": handleOperandInputs(operandInput: "*")
+                                            case "-": handleOperandInputs(operandInput: "-")
+                                            case "+": handleOperandInputs(operandInput: "+")
+                                            case ".": handleNumberInputs(title: ".")
+                                            case "<": backspaceClear()
+                                            case "=": equalsOperand()
+                                            case "AC": clearButton()
+                                            default: return
+                                        }
+  
                                     }) {
                                         Text(item.rawValue)
                                     }.buttonStyle(NumberPadButtonStyle())
