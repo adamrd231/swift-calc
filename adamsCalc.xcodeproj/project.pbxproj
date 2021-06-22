@@ -12,19 +12,17 @@
 		667FEB87267BC562009FBA5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 667FEB86267BC562009FBA5C /* Assets.xcassets */; };
 		667FEB8A267BC562009FBA5C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 667FEB89267BC562009FBA5C /* Preview Assets.xcassets */; };
 		667FEBAD267E7191009FBA5C /* CalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667FEBAC267E7191009FBA5C /* CalculatorModel.swift */; };
-		667FEBB1267FA7A3009FBA5C /* NumberPadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 667FEBB0267FA7A3009FBA5C /* NumberPadButton.swift */; };
 		66DE412826812082004F8539 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DE412726812082004F8539 /* ButtonStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		667FEB7F267BC561009FBA5C /* adamsCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adamsCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		667FEB82267BC561009FBA5C /* adamsCalcApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adamsCalcApp.swift; sourceTree = "<group>"; };
-		667FEB84267BC561009FBA5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		667FEB84267BC561009FBA5C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; };
 		667FEB86267BC562009FBA5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		667FEB89267BC562009FBA5C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		667FEB8B267BC562009FBA5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		667FEBAC267E7191009FBA5C /* CalculatorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorModel.swift; sourceTree = "<group>"; };
-		667FEBB0267FA7A3009FBA5C /* NumberPadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberPadButton.swift; sourceTree = "<group>"; };
 		66DE412726812082004F8539 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,7 +59,6 @@
 				667FEB82267BC561009FBA5C /* adamsCalcApp.swift */,
 				667FEB84267BC561009FBA5C /* ContentView.swift */,
 				66DE412726812082004F8539 /* ButtonStyles.swift */,
-				667FEBB0267FA7A3009FBA5C /* NumberPadButton.swift */,
 				667FEBAC267E7191009FBA5C /* CalculatorModel.swift */,
 				667FEB86267BC562009FBA5C /* Assets.xcassets */,
 				667FEB8B267BC562009FBA5C /* Info.plist */,
@@ -149,7 +146,6 @@
 			files = (
 				667FEB85267BC561009FBA5C /* ContentView.swift in Sources */,
 				667FEB83267BC561009FBA5C /* adamsCalcApp.swift in Sources */,
-				667FEBB1267FA7A3009FBA5C /* NumberPadButton.swift in Sources */,
 				66DE412826812082004F8539 /* ButtonStyles.swift in Sources */,
 				667FEBAD267E7191009FBA5C /* CalculatorModel.swift in Sources */,
 			);

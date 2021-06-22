@@ -10,255 +10,10 @@ import SwiftUI
 
 
 struct ContentView: View {
-    
-    // Variables for Calculator
-    @State var leftNumber = ""
-    @State var rightNumber = ""
-    @State var operand = ""
-    
-    @State var savedAnswerArray = ["1", "2", "3"]
-    
-    @State var lockOne = false
-    @State var lockTwo = false
-    @State var lockThree = false
-    @State var locksStatus = [false, true, false]
-    
-    
-    // UI Settings that users might be able to adjust
-    @State var decimalPlaces = 3
-    
-    // UI Setting for layout
-    var geometryDivisor = 8
-    
-    enum NumberPadButtons:String {
-        case one = "1"
-        case two = "2"
-        case three = "3"
-        case four = "4"
-        case five = "5"
-        case six = "6"
-        case seven = "7"
-        case eight = "8"
-        case nine = "9"
-        case zero = "0"
-        case add = "+"
-        case period = "."
-        case subtract = "-"
-        case multiply = "*"
-        case divide = "/"
-        case equals = "="
-        case clear = "AC"
-        case negativePostive = "+/-"
-        case percentage = "%"
-        case backSpace = "<"
-    }
-    
-    let numberPadButtons: [[NumberPadButtons]] = [
-        [.clear, .backSpace, .negativePostive, .divide],
-        [.seven, .eight, .nine, .multiply],
-        [.four, .five, .six, .subtract],
-        [.one, .two, .three, .add],
-        [.zero, .period, .equals]
-    ]
-    
-    
-    
-    // MARK: Helper Functions
-    func handleNumberInputs(title: String) {
-        if operand == "" {
-            if (leftNumber == "") {
-                leftNumber = title
-            } else {
-                if leftNumber.contains(".") && title == "." {
-                    return
-                }
-                leftNumber.append(title)
-            }
-        } else {
-            if rightNumber == "" {
-                rightNumber = title
-            } else {
-                if rightNumber.contains(".") && title == "." {
-                    return
-                }
-                rightNumber.append(title)
-            }
-        }
-        
-    }
-    
-    
-    func equalsOperand() {
-        // Check to make sure all inputs are entered, otherwise return
-        if leftNumber != "" && rightNumber != "" && operand != "" {
-            
-            // Setup float numbers from the inputs
-            let floatLeftNumber = Float(leftNumber)
-            let floatRightNumber = Float(rightNumber)
-            var answer:String = ""
-            
-            
-            // Perform the math operation based on the operand
-            if operand == "x" {
-                answer = (floatLeftNumber! * floatRightNumber!).clean
-            } else if operand == "-" {
-                answer = (floatLeftNumber! - floatRightNumber!).clean
-            } else if operand == "+" {
-                answer = (floatLeftNumber! + floatRightNumber!).clean
-            } else {
-                answer = (floatLeftNumber! / floatRightNumber!).clean
-            }
-            
-            
-            // Clear the operator inputs
-            leftNumber = ""
-            operand = ""
-            rightNumber = ""
-            
-            
-            if lockOne == true && lockTwo == true && lockThree == true {
-                let floatAnswer = Float(answer)
-                leftNumber = String(format: "%.\(decimalPlaces)f", floatAnswer!)
-            } else {
-                let floatAnswer = Float(answer)
-                fillAnswerArrays(numberAsString: String(format: "%.\(decimalPlaces)f", floatAnswer!))
-            }
-            
-            
-        } else {
-            return
-        }
-    }
-    
-    func continuedOperatation(newOperator: String) {
-        
-        if leftNumber.last == "." {
-            leftNumber.removeLast()
-        }
-        if rightNumber.last == "." {
-            rightNumber.removeLast()
-        }
-        
-        if leftNumber != "" && rightNumber != "" && operand != "" {
-            // Use number and operator inputs to do math
-            let doubleLeftNumber = Float(leftNumber)
-            let doubleRightNumber = Float(rightNumber)
-            var answer:Float = 0
-            
-            if operand == "x" {
-                answer = doubleLeftNumber! * doubleRightNumber!
-            } else if operand == "-" {
-                answer = doubleLeftNumber! - doubleRightNumber!
-            } else if operand == "+" {
-                answer = doubleLeftNumber! + doubleRightNumber!
-            } else {
-                answer = doubleLeftNumber! / doubleRightNumber!
-            }
-            
-            leftNumber = String(format: "%.\(decimalPlaces)f", answer)
-            operand = newOperator
-            rightNumber = ""
-            
-            
-            
-            fillAnswerArrays(numberAsString: leftNumber)
-            
-        } else {
-            return
-        }
-    }
-    
-    func handleOperandInputs(operandInput: String) {
-        
-        if leftNumber.last == "." {
-            leftNumber.removeLast()
-        }
-        if rightNumber.last == "." {
-            rightNumber.removeLast()
-        }
-
-        
-        
-        // Check place in calculator sequence
-        // if leftNumber has not been entered, do nothing
-        if leftNumber == "" {
-            return
-        // if leftNumber is filled, choose operator
-        } else if leftNumber != "" && operand == "" {
-            operand = operandInput
-        // if leftNumber is filled and operator, replace operator
-        } else if leftNumber != "" && operand != "" && rightNumber == "" {
-            operand = operandInput
-        // if leftNumber is filled, operator and rightnumber being filled, do nothing
-        } else {
-            continuedOperatation(newOperator: operandInput)
-        }
-        
-    }
-    
-    func clearButton() {
-        leftNumber = ""
-        rightNumber = ""
-        operand = ""
-        
-        if lockOne == false {
-            savedAnswerArray[0] = ""
-        }
-        if lockTwo == false {
-            savedAnswerArray[1] = ""
-        }
-        if lockThree == false {
-            savedAnswerArray[2] = ""
-        }
-        
-        
-        
-        
-    }
-    
-    func backspaceClear() {
-        if leftNumber != "" && operand != "" && rightNumber != "" {
-            rightNumber.removeLast()
-        } else if leftNumber != "" && operand != "" {
-            operand = ""
-        } else if leftNumber != "" {
-            leftNumber.removeLast()
-        } else {
-            return
-        }
-    }
-    
 
     
-    func fillAnswerArrays(numberAsString: String) {
-        
-        if savedAnswerArray[0] == "" && lockOne == false {
-            savedAnswerArray[0] = numberAsString
-        } else if savedAnswerArray[1] == "" && lockTwo == false {
-            savedAnswerArray[1] = numberAsString
-        } else if savedAnswerArray[2] == "" && lockThree == false {
-            savedAnswerArray[2] = numberAsString
-           
-        } else if savedAnswerArray[2] != "" && lockThree == false {
-            savedAnswerArray[2] = numberAsString
-        } else if savedAnswerArray[1] != "" && lockTwo == false  {
-            savedAnswerArray[1] = numberAsString
-        } else if savedAnswerArray[0] != "" && lockOne == false {
-            savedAnswerArray[0] = numberAsString
-        }
-    }
-    
-    func usingSavedAnswers(answer: String) {
-        if leftNumber == "" {
-            leftNumber = answer
-        } else if leftNumber != "" && operand == "" {
-            leftNumber = answer
-        } else if operand != "" && leftNumber != "" && rightNumber == "" {
-            rightNumber = answer
-        } else {
-            rightNumber = answer
-        }
-    }
+   
+    @EnvironmentObject var calculator: Calculator
     
     func toggleButtonStatus(boolVariable: Bool) -> Bool {
         var newBool = boolVariable
@@ -274,11 +29,10 @@ struct ContentView: View {
         }
     }
     
-
     // MARK: App UI
     var body: some View {
         
-        ZStack() {
+        ZStack {
             // Setup backgound Color
             Color(.systemGray6).edgesIgnoringSafeArea([.top,.bottom])
             GeometryReader { geometry in
@@ -286,20 +40,18 @@ struct ContentView: View {
                 VStack(alignment: .center){
                     
                     HStack {
-                        Text("\(leftNumber)")
-                        Text("\(operand)")
-                        Text("\(rightNumber)")
+                        Text("\(calculator.leftNumber)")
+                        Text("\(calculator.operand)")
+                        Text("\(calculator.rightNumber)")
                     }
                     
 
                     HStack {
-                        ForEach(0...savedAnswerArray.count - 1, id: \.self) { savedAnswer in
+                        ForEach(0...calculator.savedAnswerArray.count - 1, id: \.self) { savedAnswer in
                             Button( action: {
-                                usingSavedAnswers(answer: savedAnswerArray[savedAnswer])
-                                print(savedAnswerArray[savedAnswer])
+                                calculator.usingSavedAnswers(answer: calculator.savedAnswerArray[savedAnswer])
                             }) {
-                                
-                                Text("\(savedAnswerArray[savedAnswer])")
+                                Text("\(calculator.savedAnswerArray[savedAnswer])")
                             }
                         }
                     }
@@ -307,41 +59,41 @@ struct ContentView: View {
                     
                     HStack {
                         Button(action: {
-                            lockOne = toggleButtonStatus(boolVariable: lockOne)
-                        }) { displayLockImage(boolVariable: lockOne) }
+                            calculator.lockOne = toggleButtonStatus(boolVariable: calculator.lockOne)
+                        }) { displayLockImage(boolVariable: calculator.lockOne) }
                         Button(action: {
-                            lockTwo = toggleButtonStatus(boolVariable: lockTwo)
-                        }) { displayLockImage(boolVariable: lockTwo) }
+                            calculator.lockTwo = toggleButtonStatus(boolVariable: calculator.lockTwo)
+                        }) { displayLockImage(boolVariable: calculator.lockTwo) }
                         Button(action: {
-                            lockThree = toggleButtonStatus(boolVariable: lockThree)
-                        }) { displayLockImage(boolVariable: lockThree) }
+                            calculator.lockThree = toggleButtonStatus(boolVariable: calculator.lockThree)
+                        }) { displayLockImage(boolVariable: calculator.lockThree) }
                     }
                     
                     
                     VStack {
-                        ForEach(numberPadButtons, id: \.self) { row in
+                        ForEach(calculator.numberPadButtons, id: \.self) { row in
                             HStack {
                                 ForEach(row, id: \.self) { item in
                                     Button(action:{
                                         switch item.rawValue {
-                                            case "1": handleNumberInputs(title: "1")
-                                            case "2": handleNumberInputs(title: "2")
-                                            case "3": handleNumberInputs(title: "3")
-                                            case "4": handleNumberInputs(title: "4")
-                                            case "5": handleNumberInputs(title: "5")
-                                            case "6": handleNumberInputs(title: "6")
-                                            case "7": handleNumberInputs(title: "7")
-                                            case "8": handleNumberInputs(title: "8")
-                                            case "9": handleNumberInputs(title: "9")
-                                            case "0": handleNumberInputs(title: "0")
-                                            case "/": handleOperandInputs(operandInput: "/")
-                                            case "*": handleOperandInputs(operandInput: "*")
-                                            case "-": handleOperandInputs(operandInput: "-")
-                                            case "+": handleOperandInputs(operandInput: "+")
-                                            case ".": handleNumberInputs(title: ".")
-                                            case "<": backspaceClear()
-                                            case "=": equalsOperand()
-                                            case "AC": clearButton()
+                                        case "1": calculator.handleNumberInputs(title: "1")
+                                        case "2": calculator.handleNumberInputs(title: "2")
+                                        case "3": calculator.handleNumberInputs(title: "3")
+                                        case "4": calculator.handleNumberInputs(title: "4")
+                                        case "5": calculator.handleNumberInputs(title: "5")
+                                        case "6": calculator.handleNumberInputs(title: "6")
+                                        case "7": calculator.handleNumberInputs(title: "7")
+                                        case "8": calculator.handleNumberInputs(title: "8")
+                                        case "9": calculator.handleNumberInputs(title: "9")
+                                        case "0": calculator.handleNumberInputs(title: "0")
+                                        case "/": calculator.handleOperandInputs(operandInput: "/")
+                                        case "*": calculator.handleOperandInputs(operandInput: "*")
+                                        case "-": calculator.handleOperandInputs(operandInput: "-")
+                                        case "+": calculator.handleOperandInputs(operandInput: "+")
+                                        case ".": calculator.handleNumberInputs(title: ".")
+                                        case "<": calculator.backspaceClear()
+                                        case "=": calculator.equalsOperand()
+                                        case "AC": calculator.clearButton()
                                             default: return
                                         }
   
@@ -352,7 +104,7 @@ struct ContentView: View {
                             }
                         }
                     }
-                }
+                }.padding()
             }
         }
     }
@@ -361,8 +113,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView()
-            ContentView()
+            ContentView().environmentObject(Calculator())
         }
     }
 }
