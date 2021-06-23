@@ -7,13 +7,11 @@
 
 import SwiftUI
 
-
-
 struct ContentView: View {
-
-    
    
     @EnvironmentObject var calculator: Calculator
+    
+    @State var currentButtonStyle = ""
     
     func toggleButtonStatus(boolVariable: Bool) -> Bool {
         var newBool = boolVariable
@@ -23,89 +21,116 @@ struct ContentView: View {
     
     func displayLockImage(boolVariable:Bool) -> Image {
         if boolVariable == false {
-            return Image(systemName: "lock")
+            return Image(systemName: "lock").resizable()
         } else {
-            return Image(systemName: "lock.fill")
+            return Image(systemName: "lock.fill").resizable()
         }
     }
+    
+
     
     // MARK: App UI
     var body: some View {
         GeometryReader { geometry in
-        ZStack {
+            ZStack(alignment: .top) {
             // Setup backgound Color
             Color(.systemGray6).edgesIgnoringSafeArea([.top,.bottom])
             
-            
-                VStack(alignment: .center){
+            // Main Stack
+            VStack() {
+                // Google Ad Mob
+                HStack {
                     
-                    HStack {
-                        Text("\(calculator.leftNumber)")
-                        Text("\(calculator.operand)")
-                        Text("\(calculator.rightNumber)")
+                }.frame(
+                    minWidth: 0,
+                    maxWidth: .infinity,
+                    minHeight: 50,
+                    maxHeight: 50)
+                .background(Color.blue)
+                
+                
+                // Display the calculator as user types and enters equations
+                HStack {
+                    Text("\(calculator.leftNumber)").font(.largeTitle).foregroundColor(Color.white)
+                    Text("\(calculator.operand)").font(.largeTitle).foregroundColor(Color.white)
+                    Text("\(calculator.rightNumber)").font(.largeTitle).foregroundColor(Color.white)
+                }.padding()
+                .frame(minWidth: 0,
+                       maxWidth: .infinity,
+                       minHeight: 90,
+                       maxHeight: 115,
+                       alignment: .trailing)
+                .background(Color(.darkGray))
+                
+                
+                // Saved Answer Array
+                HStack {
+                    ForEach(0...calculator.savedAnswerArray.count - 1, id: \.self) { savedAnswer in
+                        Button( action: {
+                            calculator.usingSavedAnswers(answer: calculator.savedAnswerArray[savedAnswer])
+                        }) {
+                            Text("\(calculator.savedAnswerArray[savedAnswer])")
+                        }.buttonStyle(SavedAnswersButtonStyle())
                     }
-                    
+                }
+                
+                // Lock Button Row
+                HStack {
+                    Button(action: {
+                        calculator.lockOne = toggleButtonStatus(boolVariable: calculator.lockOne)
+                    }) { displayLockImage(boolVariable: calculator.lockOne).frame(width: 23, height: 27) }
+                    Spacer()
+                    Button(action: {
+                        calculator.lockTwo = toggleButtonStatus(boolVariable: calculator.lockTwo)
+                    }) { displayLockImage(boolVariable: calculator.lockTwo).frame(width: 23, height: 27) }
+                    Spacer()
+                    Button(action: {
+                        calculator.lockThree = toggleButtonStatus(boolVariable: calculator.lockThree)
+                    }) { displayLockImage(boolVariable: calculator.lockThree).frame(width: 23, height: 27) }
+                }.frame(minWidth: 175,
+                        maxWidth: 225)
+                
+                
+                // Number Pad Buttons
+                VStack(alignment: .center) {
+                    ForEach(calculator.numberPadButtons, id: \.self) { row in
+                        HStack {
+                            ForEach(row, id: \.self) { item in
+                                Button(action:{
+                                    switch item.rawValue {
+                                    case "1": calculator.handleNumberInputs(title: "1")
+                                    case "2": calculator.handleNumberInputs(title: "2")
+                                    case "3": calculator.handleNumberInputs(title: "3")
+                                    case "4": calculator.handleNumberInputs(title: "4")
+                                    case "5": calculator.handleNumberInputs(title: "5")
+                                    case "6": calculator.handleNumberInputs(title: "6")
+                                    case "7": calculator.handleNumberInputs(title: "7")
+                                    case "8": calculator.handleNumberInputs(title: "8")
+                                    case "9": calculator.handleNumberInputs(title: "9")
+                                    case "0": calculator.handleNumberInputs(title: "0")
+                                    case "/": calculator.handleOperandInputs(operandInput: "/")
+                                    case "*": calculator.handleOperandInputs(operandInput: "*")
+                                    case "-": calculator.handleOperandInputs(operandInput: "-")
+                                    case "+": calculator.handleOperandInputs(operandInput: "+")
+                                    case "+/-": calculator.handleNumberInputs(title: "+/-")
+                                    case ".": calculator.handleNumberInputs(title: ".")
+                                    case "<": calculator.backspaceClear()
+                                    case "=": calculator.equalsOperand()
+                                    case "AC": calculator.clearButton()
+                                        default: return
+                                    }
+                                    
+                                    currentButtonStyle = item.rawValue
 
-                    HStack {
-                        ForEach(0...calculator.savedAnswerArray.count - 1, id: \.self) { savedAnswer in
-                            Button( action: {
-                                calculator.usingSavedAnswers(answer: calculator.savedAnswerArray[savedAnswer])
-                            }) {
-                                Text("\(calculator.savedAnswerArray[savedAnswer])")
-                            }
-                        }
-                    }
-                    
-                    
-                    HStack {
-                        Button(action: {
-                            calculator.lockOne = toggleButtonStatus(boolVariable: calculator.lockOne)
-                        }) { displayLockImage(boolVariable: calculator.lockOne) }
-                        Button(action: {
-                            calculator.lockTwo = toggleButtonStatus(boolVariable: calculator.lockTwo)
-                        }) { displayLockImage(boolVariable: calculator.lockTwo) }
-                        Button(action: {
-                            calculator.lockThree = toggleButtonStatus(boolVariable: calculator.lockThree)
-                        }) { displayLockImage(boolVariable: calculator.lockThree) }
-                    }
-                    
-                    
-                    VStack(alignment: .center) {
-                        ForEach(calculator.numberPadButtons, id: \.self) { row in
-                            HStack {
-                                ForEach(row, id: \.self) { item in
-                                    Button(action:{
-                                        switch item.rawValue {
-                                        case "1": calculator.handleNumberInputs(title: "1")
-                                        case "2": calculator.handleNumberInputs(title: "2")
-                                        case "3": calculator.handleNumberInputs(title: "3")
-                                        case "4": calculator.handleNumberInputs(title: "4")
-                                        case "5": calculator.handleNumberInputs(title: "5")
-                                        case "6": calculator.handleNumberInputs(title: "6")
-                                        case "7": calculator.handleNumberInputs(title: "7")
-                                        case "8": calculator.handleNumberInputs(title: "8")
-                                        case "9": calculator.handleNumberInputs(title: "9")
-                                        case "0": calculator.handleNumberInputs(title: "0")
-                                        case "/": calculator.handleOperandInputs(operandInput: "/")
-                                        case "*": calculator.handleOperandInputs(operandInput: "*")
-                                        case "-": calculator.handleOperandInputs(operandInput: "-")
-                                        case "+": calculator.handleOperandInputs(operandInput: "+")
-                                        case ".": calculator.handleNumberInputs(title: ".")
-                                        case "<": calculator.backspaceClear()
-                                        case "=": calculator.equalsOperand()
-                                        case "AC": calculator.clearButton()
-                                            default: return
-                                        }
-  
-                                    }) {
-                                        Text(item.rawValue)
-                                    }.buttonStyle(NumberPadButtonStyle())
+                                }) {
+                                    Text(item.rawValue).foregroundColor(.white)
+                                }.buttonStyle(NumberPadButtonStyle())
                                 }
                             }
                         }
-                    }
-                }.padding()
-            }
+                }.padding(.bottom).padding(.top)
+                }
+            }.ignoresSafeArea(edges: .top)
         }
     }
 }

@@ -13,7 +13,7 @@ class Calculator: ObservableObject, Identifiable {
     @Published var rightNumber = ""
     @Published var operand = ""
 
-    @Published var savedAnswerArray = ["1", "2", "3"]
+    @Published var savedAnswerArray = ["", "", ""]
 
     @Published var lockOne = false
     @Published var lockTwo = false
@@ -25,7 +25,7 @@ class Calculator: ObservableObject, Identifiable {
     @Published var decimalPlaces = 1
 
     // UI Setting for layout
-    var geometryDivisor = 8
+    var geometryDivisor = 9
     
     enum NumberPadButtons:String {
         case one = "1"
@@ -61,26 +61,59 @@ class Calculator: ObservableObject, Identifiable {
     
     // MARK: Helper Functions
     func handleNumberInputs(title: String) {
+
         if operand == "" {
             if (leftNumber == "") {
-                leftNumber = title
+                if title == "+/-" {
+                    return
+                } else {
+                    leftNumber = title
+                }
+                
             } else {
                 if leftNumber.contains(".") && title == "." {
                     return
                 }
-                leftNumber.append(title)
+                
+                
+                if title == "+/-" {
+                    leftNumber = changeNegativePositive(numberFromString: leftNumber)
+                } else {
+                    leftNumber.append(title)
+                }
+                
             }
         } else {
             if rightNumber == "" {
-                rightNumber = title
+                if title == "+/-" {
+                    return
+                } else {
+                    rightNumber = title
+                }
+                
             } else {
                 if rightNumber.contains(".") && title == "." {
                     return
                 }
-                rightNumber.append(title)
+                if title == "+/-" {
+                    rightNumber = changeNegativePositive(numberFromString: rightNumber)
+                } else {
+                    rightNumber.append(title)
+                }
+                
             }
         }
         
+    }
+    
+    func changeNegativePositive(numberFromString: String) -> String {
+        var floatNumber = Float(numberFromString)
+        if var floatCheck = floatNumber {
+            floatCheck = floatCheck * -1
+            return String(floatCheck)
+        } else {
+            return numberFromString
+        }
     }
     
     
