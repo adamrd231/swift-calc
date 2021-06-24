@@ -30,15 +30,9 @@ struct ContentView: View {
         }
     }
     
-    // Admob
-    var interstitial:GADInterstitialAd
-    init() { self.interstitial = GADInterstitialAd() }
-    
-    
     
     // MARK: App UI
     var body: some View {
-        
         
         GeometryReader { geometry in
             ZStack(alignment: .top) {
@@ -52,14 +46,14 @@ struct ContentView: View {
                 
                 // Display the calculator as user types and enters equations
                 HStack {
-                    Text("\(calculator.leftNumber)").font(.largeTitle).foregroundColor(Color.white)
-                    Text("\(calculator.operand)").font(.largeTitle).foregroundColor(Color.white)
-                    Text("\(calculator.rightNumber)").font(.largeTitle).foregroundColor(Color.white)
+                    Text("\(calculator.leftNumber)").foregroundColor(Color.white).font(.system(size: 50.0))
+                    Text("\(calculator.operand)").foregroundColor(Color.white).font(.system(size: 50.0))
+                    Text("\(calculator.rightNumber)").foregroundColor(Color.white).font(.system(size: 50.0))
                 }.padding()
                 .frame(minWidth: 0,
                        maxWidth: .infinity,
-                       minHeight: 90,
-                       maxHeight: 115,
+                       minHeight: 100,
+                       maxHeight: 150,
                        alignment: .trailing)
                 .background(Color(.darkGray))
                 
@@ -70,8 +64,8 @@ struct ContentView: View {
                         Button( action: {
                             calculator.usingSavedAnswers(answer: calculator.savedAnswerArray[savedAnswer])
                         }) {
-                            Text("\(calculator.savedAnswerArray[savedAnswer])")
-                        }.buttonStyle(SavedAnswersButtonStyle())
+                            Text("\(calculator.savedAnswerArray[savedAnswer])").font(.system(size: 18.0))
+                        }.buttonStyle(SavedAnswersButtonStyle()).padding(.top)
                     }
                 }
                 
@@ -88,8 +82,8 @@ struct ContentView: View {
                     Button(action: {
                         calculator.lockThree = toggleButtonStatus(boolVariable: calculator.lockThree)
                     }) { displayLockImage(boolVariable: calculator.lockThree).frame(width: 23, height: 27) }
-                }.frame(minWidth: 175,
-                        maxWidth: 225)
+                }.frame(minWidth: 200,
+                        maxWidth: 250)
                 
                 
                 // Number Pad Buttons
@@ -120,19 +114,21 @@ struct ContentView: View {
                                     case "AC": calculator.clearButton()
                                         default: return
                                     }
-                                    
-                                    currentButtonStyle = item.rawValue
+                        
 
                                 }) {
-                                    Text(item.rawValue).foregroundColor(.white)
+                                    Text(item.rawValue)
+                                        .foregroundColor(.white)
+                                        .font(.system(size: 20.0))
+                                        
                                 }.buttonStyle(NumberPadButtonStyle())
                                 }
-                            }
+                        }
                         }
                 }.padding(.bottom).padding(.top)
                     
                 // Google Ad Mob
-                    Banner().frame(alignment: .center)
+                Banner().frame(alignment: .center)
                 }
             }
         }

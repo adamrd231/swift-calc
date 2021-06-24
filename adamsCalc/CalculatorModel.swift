@@ -19,7 +19,7 @@ class Calculator: ObservableObject, Identifiable {
     @Published var locksStatus = [false, true, false]
 
     // UI Settings that users might be able to adjust
-    @Published var decimalPlaces = 1
+    @Published var decimalPlaces = 2
     
     enum NumberPadButtons:String {
         case one = "1"
@@ -138,11 +138,11 @@ class Calculator: ObservableObject, Identifiable {
             rightNumber = ""
             
             if lockOne == true && lockTwo == true && lockThree == true {
-                let floatAnswer = Float(answer)
-                leftNumber = String(format: "%.\(decimalPlaces)f", floatAnswer!)
+                
+                leftNumber = answer
             } else {
-                let floatAnswer = Float(answer)
-                fillAnswerArrays(numberAsString: String(format: "%.\(decimalPlaces)f", floatAnswer!))
+                
+                fillAnswerArrays(numberAsString: answer)
             }
         } else {
             return

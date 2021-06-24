@@ -11,10 +11,11 @@ import SwiftUI
         
         func makeBody(configuration: Configuration) -> some View {
             configuration.label
-                .frame(width: 35, height: 15, alignment: .center)
+                .frame(width: 45, height: 25, alignment: .center)
                 .padding()
                 .background(Color(.black))
                 .cornerRadius(35.0)
+                
             
         }
     }
@@ -24,7 +25,7 @@ import SwiftUI
         
         func makeBody(configuration: Configuration) -> some View {
             configuration.label
-                .frame(width: 60, height: 15, alignment: .center)
+                .frame(width: 75, height: 25, alignment: .center)
                 .padding()
                 .background(Color(.systemGray5))
                 .cornerRadius(35.0)
