@@ -6,12 +6,16 @@
 //
 
 import SwiftUI
+import GoogleMobileAds
 
 @main
 struct adamsCalcApp: App {
+    
+    var calculator = Calculator()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(calculator)
         }
     }
 }

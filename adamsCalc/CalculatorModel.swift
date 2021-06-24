@@ -12,20 +12,14 @@ class Calculator: ObservableObject, Identifiable {
     @Published var leftNumber = ""
     @Published var rightNumber = ""
     @Published var operand = ""
-
     @Published var savedAnswerArray = ["", "", ""]
-
     @Published var lockOne = false
     @Published var lockTwo = false
     @Published var lockThree = false
     @Published var locksStatus = [false, true, false]
 
-
     // UI Settings that users might be able to adjust
     @Published var decimalPlaces = 1
-
-    // UI Setting for layout
-    var geometryDivisor = 9
     
     enum NumberPadButtons:String {
         case one = "1"
@@ -118,6 +112,7 @@ class Calculator: ObservableObject, Identifiable {
     
     
     func equalsOperand() {
+
         // Check to make sure all inputs are entered, otherwise return
         if leftNumber != "" && rightNumber != "" && operand != "" {
             

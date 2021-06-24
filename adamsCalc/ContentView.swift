@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import GoogleUtilities
+import GoogleMobileAds
 
 struct ContentView: View {
    
     @EnvironmentObject var calculator: Calculator
     
-    @State var currentButtonStyle = ""
+    // UI Setting for layout
+    var geometryDivisor = 9
     
     func toggleButtonStatus(boolVariable: Bool) -> Bool {
         var newBool = boolVariable
@@ -27,26 +30,24 @@ struct ContentView: View {
         }
     }
     
-
+    // Admob
+    var interstitial:GADInterstitialAd
+    init() { self.interstitial = GADInterstitialAd() }
+    
+    
     
     // MARK: App UI
     var body: some View {
+        
+        
         GeometryReader { geometry in
             ZStack(alignment: .top) {
             // Setup backgound Color
             Color(.systemGray6).edgesIgnoringSafeArea([.top,.bottom])
             
             // Main Stack
-            VStack() {
-                // Google Ad Mob
-                HStack {
-                    
-                }.frame(
-                    minWidth: 0,
-                    maxWidth: .infinity,
-                    minHeight: 50,
-                    maxHeight: 50)
-                .background(Color.blue)
+                VStack(alignment: .center) {
+                
                 
                 
                 // Display the calculator as user types and enters equations
@@ -129,11 +130,17 @@ struct ContentView: View {
                             }
                         }
                 }.padding(.bottom).padding(.top)
+                    
+                // Google Ad Mob
+                    Banner().frame(alignment: .center)
                 }
-            }.ignoresSafeArea(edges: .top)
+            }
         }
     }
 }
+
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
@@ -152,3 +159,5 @@ extension Float {
        return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
     }
 }
+ 
+
